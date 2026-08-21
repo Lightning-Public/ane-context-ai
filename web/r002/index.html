@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="ANE Context AI의 첫 초보자용 고대근동 Context Package 학습 화면"
+    />
+    <title>문자는 왜 탄생했는가? · ANE Context AI</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+
+    <header class="topbar">
+      <a class="brand" href="../../README.md" aria-label="ANE Context AI 저장소 소개">
+        <span class="brand-mark" aria-hidden="true">𒀭</span>
+        <span>
+          <strong>ANE Context AI</strong>
+          <small>Evidence before answers</small>
+        </span>
+      </a>
+      <div class="topbar-meta">
+        <span id="module-code" class="module-chip">ANE 101 · Module 3</span>
+        <span id="top-review-status" class="status-chip status-neutral">불러오는 중</span>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="question-title">
+        <p class="eyebrow" id="module-title">도시와 문자의 탄생</p>
+        <h1 id="question-title">문자는 왜 탄생했는가?</h1>
+        <p id="normalized-question" class="hero-summary">
+          연구 패키지를 불러오고 있습니다.
+        </p>
+        <div id="review-banner" class="review-banner status-neutral" role="status">
+          <div>
+            <strong id="review-label">검토 상태 확인 중</strong>
+            <p id="review-message">잠시만 기다려 주세요.</p>
+          </div>
+          <span id="human-review-badge" class="human-review-badge">사람 검토 확인 중</span>
+        </div>
+        <div id="scope-chips" class="scope-chips" aria-label="학습 범위"></div>
+      </section>
+
+      <section id="orientation" class="section-block" aria-labelledby="orientation-title">
+        <div class="section-heading">
+          <p class="section-number">01</p>
+          <div>
+            <h2 id="orientation-title">먼저, 시간과 장소를 잡습니다</h2>
+            <p>날짜를 외우기보다 현재 자료가 어디에 놓이는지 확인합니다.</p>
+          </div>
+        </div>
+        <div class="orientation-grid">
+          <article class="panel map-panel">
+            <div class="panel-heading">
+              <span class="panel-kicker">MAP CONTEXT</span>
+              <h3>우루크, 남부 메소포타미아</h3>
+            </div>
+            <svg
+              class="concept-map"
+              viewBox="0 0 520 300"
+              role="img"
+              aria-labelledby="map-title map-description"
+            >
+              <title id="map-title">우루크 개념 지도</title>
+              <desc id="map-description">티그리스강과 유프라테스강, 페르시아만, 우루크의 상대적 위치를 단순화한 축척 없는 지도</desc>
+              <path class="land" d="M80 28 C154 4 253 23 314 71 C370 115 407 159 448 244 L392 279 L116 265 C94 208 73 135 80 28Z" />
+              <path class="river" d="M198 34 C192 81 220 118 213 158 C208 194 182 225 183 267" />
+              <path class="river" d="M286 58 C273 99 290 137 273 171 C254 208 229 233 224 270" />
+              <path class="gulf" d="M224 270 C288 249 354 250 409 278 L385 300 L211 300Z" />
+              <circle class="map-marker-ring" cx="210" cy="218" r="18" />
+              <circle class="map-marker" cx="210" cy="218" r="7" />
+              <text class="map-label" x="232" y="222">Uruk</text>
+              <text class="river-label" x="128" y="128">Euphrates</text>
+              <text class="river-label" x="304" y="136">Tigris</text>
+              <text class="gulf-label" x="292" y="286">Persian Gulf</text>
+            </svg>
+            <p id="map-caption" class="caption">개념 지도 — 축척 아님</p>
+          </article>
+
+          <article class="panel timeline-panel">
+            <div class="panel-heading">
+              <span class="panel-kicker">TIME CONTEXT</span>
+              <h3>‘최초 발생’과 ‘현재 표본’을 구분하기</h3>
+            </div>
+            <div id="timeline" class="timeline" aria-label="우루크 IV와 III 연대표"></div>
+            <div class="timeline-callout">
+              <strong>왜 중요할까요?</strong>
+              <p>
+                지금 보는 세 자료는 Uruk III기입니다. 더 이른 Uruk IV 자료 없이
+                문자의 최초 발생 원인을 확정해서는 안 됩니다.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="artifacts" class="section-block" aria-labelledby="artifacts-title">
+        <div class="section-heading">
+          <p class="section-number">02</p>
+          <div>
+            <h2 id="artifacts-title">세 점토판을 ‘증거 카드’로 읽습니다</h2>
+            <p>유물 신원과 전사를 분리하고, 모든 인용은 원 출처와 행 위치로 돌아갑니다.</p>
+          </div>
+        </div>
+        <div class="notation-legend" aria-label="전사 불확실성 기호 설명">
+          <span><code>#</code> 손상된 기호</span>
+          <span><code>?</code> 불확실한 판독</span>
+          <span><code>[...]</code> 파손·누락</span>
+          <span><code>X</code> 미판독</span>
+        </div>
+        <div id="artifact-list" class="artifact-list"></div>
+      </section>
+
+      <section id="claims" class="section-block" aria-labelledby="claims-title">
+        <div class="section-heading">
+          <p class="section-number">03</p>
+          <div>
+            <h2 id="claims-title">사실과 해석을 다른 선반에 놓습니다</h2>
+            <p>같은 문장처럼 보여도 지식의 근거 수준은 다릅니다.</p>
+          </div>
+        </div>
+        <div id="claim-lanes" class="claim-lanes"></div>
+      </section>
+
+      <section id="debates" class="section-block" aria-labelledby="debates-title">
+        <div class="section-heading">
+          <p class="section-number">04</p>
+          <div>
+            <h2 id="debates-title">하나의 정답 대신 논쟁 구조를 봅니다</h2>
+            <p>근거가 다른 설명을 나란히 두고, 아직 답하지 못한 질문을 남깁니다.</p>
+          </div>
+        </div>
+        <div id="debate-list"></div>
+      </section>
+
+      <section id="uncertainties" class="section-block" aria-labelledby="uncertainties-title">
+        <div class="section-heading">
+          <p class="section-number">05</p>
+          <div>
+            <h2 id="uncertainties-title">모르는 것을 지우지 않습니다</h2>
+            <p>표본 편향, 판독, 연대, 장르 충돌을 결과물 안에 보존합니다.</p>
+          </div>
+        </div>
+        <div id="uncertainty-list" class="uncertainty-grid"></div>
+      </section>
+
+      <section id="provenance" class="section-block" aria-labelledby="provenance-title">
+        <div class="section-heading">
+          <p class="section-number">06</p>
+          <div>
+            <h2 id="provenance-title">이 설명이 만들어진 경로를 공개합니다</h2>
+            <p>검색 시점, 데이터 manifest, 검토 상태를 사용자가 직접 확인할 수 있습니다.</p>
+          </div>
+        </div>
+        <div class="provenance-grid">
+          <article class="panel">
+            <h3>검색·생성 기록</h3>
+            <dl id="provenance-meta" class="metadata-list"></dl>
+            <ul id="query-list" class="compact-list"></ul>
+          </article>
+          <article class="panel review-panel">
+            <h3>검토 기록</h3>
+            <div id="review-detail"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="next-questions" class="next-section" aria-labelledby="next-title">
+        <p class="eyebrow">NEXT RESEARCH</p>
+        <h2 id="next-title">다음 질문으로 더 깊이 들어갑니다</h2>
+        <div id="next-question-list" class="next-question-list"></div>
+      </section>
+
+      <div id="load-error" class="load-error" hidden role="alert"></div>
+    </main>
+
+    <footer>
+      <p>ANE Context AI · Provenance-first learning prototype</p>
+      <p>외부 유물 이미지를 복제하지 않은 텍스트 기반 실험입니다.</p>
+    </footer>
+  </body>
+</html>

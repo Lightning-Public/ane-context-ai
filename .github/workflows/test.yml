@@ -23,3 +23,9 @@ jobs:
             examples/context-package.example.json
           PYTHONPATH=src python -m ane_context_ai validate-review \
             examples/r002-ai-source-audit.review-record.json
+      - name: Build beginner learning view
+        run: |
+          PYTHONPATH=src python -m ane_context_ai build-learning-view \
+            examples/r002-origin-of-writing.context-package.json \
+            --output /tmp/r002-learning-view.json
+          python -m json.tool /tmp/r002-learning-view.json >/dev/null

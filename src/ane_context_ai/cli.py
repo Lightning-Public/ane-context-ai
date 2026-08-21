@@ -9,6 +9,7 @@ from typing import Any
 
 from .cdli import CDLIClient
 from .cdli_manifest import verify_manifest
+from .learning_view import build_learning_view
 from .review import (
     validate_context_promotion,
     validate_review_record,
@@ -77,6 +78,22 @@ def _validate_source_pack(path: Path, review_paths: list[Path]) -> int:
     print(
         f"valid source-pack promotions: manifest={path} review_records={len(review_paths)}"
     )
+    return 0
+
+
+def _build_learning_view(path: Path, output: Path) -> int:
+    try:
+        view = build_learning_view(_load_object(path))
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(
+            json.dumps(view, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    except (OSError, json.JSONDecodeError, ValueError, ValidationError) as exc:
+        print(f"learning view build failed: {exc}")
+        return 1
+
+    print(f"built learning view: source={path} output={output}")
     return 0
 
 
@@ -153,6 +170,13 @@ def build_parser() -> argparse.ArgumentParser:
     source_pack_parser.add_argument("path", type=Path)
     _add_review_record_args(source_pack_parser)
 
+    learning_parser = subparsers.add_parser(
+        "build-learning-view",
+        help="build a beginner-facing view model from a Context Package",
+    )
+    learning_parser.add_argument("path", type=Path)
+    learning_parser.add_argument("--output", "-o", type=Path, required=True)
+
     cdli_parser = subparsers.add_parser(
         "verify-cdli", help="resolve CDLI metadata for source-pack candidates"
     )
@@ -174,6 +198,8 @@ def main(argv: list[str] | None = None) -> int:
         return _validate_promotion(args.path, args.review_records)
     if args.command == "validate-source-pack":
         return _validate_source_pack(args.path, args.review_records)
+    if args.command == "build-learning-view":
+        return _build_learning_view(args.path, args.output)
     if args.command == "verify-cdli":
         return _verify_cdli(
             args.path,
