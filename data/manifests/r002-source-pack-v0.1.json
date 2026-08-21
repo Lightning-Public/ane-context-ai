@@ -1,0 +1,56 @@
+{
+  "manifest_version": "0.1.0",
+  "research_id": "R002-origin-of-writing",
+  "pack_id": "r002-source-pack-v0.1",
+  "status": "candidate-working-set",
+  "selection_method": {
+    "description": "First 24 aligned tablet records from the Nino-cunei Uruk Text-Fabric 1.0 catalogId/period features; retained only as a reproducible working set.",
+    "selection_helper": "https://github.com/Nino-cunei/uruk",
+    "primary_authority": "CDLI",
+    "primary_authority_url": "https://cdli.earth/",
+    "notes": "Do not treat this set as statistically or historically representative. Verify each object against current CDLI metadata before use as evidence."
+  },
+  "rights_policy": {
+    "redistribute_images": false,
+    "redistribute_transliterations": false,
+    "redistribute_translations": false,
+    "store_identifiers_and_local_annotations": true,
+    "notes": "Rights for each external asset must be verified separately before ingestion or redistribution."
+  },
+  "objects": [
+    {"object_id":"P006427","period":"Uruk III","status":"candidate"},
+    {"object_id":"P006428","period":"Uruk III","status":"candidate"},
+    {"object_id":"P448701","period":"Uruk III","status":"candidate"},
+    {"object_id":"P448702","period":"Uruk III","status":"candidate"},
+    {"object_id":"P448703","period":"Uruk III","status":"candidate"},
+    {"object_id":"P471695","period":"Uruk III","status":"candidate"},
+    {"object_id":"P482082","period":"Uruk III","status":"candidate"},
+    {"object_id":"P482083","period":"Uruk III","status":"candidate"},
+    {"object_id":"P499393","period":"Uruk III","status":"candidate"},
+    {"object_id":"P504412","period":"Uruk III","status":"candidate"},
+    {"object_id":"P504413","period":"Uruk III","status":"candidate"},
+    {"object_id":"P006438","period":"Uruk III","status":"candidate"},
+    {"object_id":"P000014","period":"Uruk III","status":"candidate"},
+    {"object_id":"P000456","period":"Uruk III","status":"candidate"},
+    {"object_id":"P002718","period":"Uruk III","status":"candidate"},
+    {"object_id":"P000021","period":"Uruk III","status":"candidate"},
+    {"object_id":"P000023","period":"Uruk III","status":"candidate"},
+    {"object_id":"P000025","period":"Uruk III","status":"candidate"},
+    {"object_id":"P000167","period":"Uruk III","status":"candidate"},
+    {"object_id":"P000453","period":"Uruk III","status":"candidate"},
+    {"object_id":"P000434","period":"Uruk III","status":"candidate"},
+    {"object_id":"P000481","period":"Uruk III","status":"candidate"},
+    {"object_id":"P000488","period":"Uruk III","status":"candidate"},
+    {"object_id":"P000628","period":"Uruk III","status":"candidate"}
+  ],
+  "next_verification_fields": [
+    "provenience",
+    "genre",
+    "collection",
+    "museum_no",
+    "publications",
+    "inscription_availability",
+    "asset_rights",
+    "stable_url"
+  ]
+}
