@@ -5,21 +5,78 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+from typing import Any
 
 from .cdli import CDLIClient
 from .cdli_manifest import verify_manifest
+from .review import (
+    validate_context_promotion,
+    validate_review_record,
+    validate_source_pack_promotions,
+)
 from .validation import ValidationError, validate_context_package
+
+
+def _load_object(path: Path) -> dict[str, Any]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError(f"{path} must contain a JSON object")
+    return payload
+
+
+def _load_review_records(paths: list[Path]) -> list[dict[str, Any]]:
+    return [_load_object(path) for path in paths]
 
 
 def _validate(path: Path) -> int:
     try:
-        payload = json.loads(path.read_text(encoding="utf-8"))
-        validate_context_package(payload)
-    except (OSError, json.JSONDecodeError, ValidationError) as exc:
+        validate_context_package(_load_object(path))
+    except (OSError, json.JSONDecodeError, ValueError, ValidationError) as exc:
         print(f"invalid: {exc}")
         return 1
 
     print(f"valid: {path}")
+    return 0
+
+
+def _validate_review(path: Path) -> int:
+    try:
+        validate_review_record(_load_object(path))
+    except (OSError, json.JSONDecodeError, ValueError, ValidationError) as exc:
+        print(f"invalid review record: {exc}")
+        return 1
+
+    print(f"valid review record: {path}")
+    return 0
+
+
+def _validate_promotion(path: Path, review_paths: list[Path]) -> int:
+    try:
+        package = _load_object(path)
+        records = _load_review_records(review_paths)
+        validate_context_promotion(package, records)
+    except (OSError, json.JSONDecodeError, ValueError, ValidationError) as exc:
+        print(f"invalid promotion: {exc}")
+        return 1
+
+    print(
+        f"valid context promotion: package={path} review_records={len(review_paths)}"
+    )
+    return 0
+
+
+def _validate_source_pack(path: Path, review_paths: list[Path]) -> int:
+    try:
+        manifest = _load_object(path)
+        records = _load_review_records(review_paths)
+        validate_source_pack_promotions(manifest, records)
+    except (OSError, json.JSONDecodeError, ValueError, ValidationError) as exc:
+        print(f"invalid source-pack promotion: {exc}")
+        return 1
+
+    print(
+        f"valid source-pack promotions: manifest={path} review_records={len(review_paths)}"
+    )
     return 0
 
 
@@ -32,9 +89,7 @@ def _verify_cdli(
     limit: int | None,
 ) -> int:
     try:
-        manifest = json.loads(path.read_text(encoding="utf-8"))
-        if not isinstance(manifest, dict):
-            raise ValueError("manifest must be a JSON object")
+        manifest = _load_object(path)
         verified = verify_manifest(
             manifest,
             CDLIClient(base_url=base_url, timeout=timeout),
@@ -58,6 +113,18 @@ def _verify_cdli(
     return 0 if run["errors"] == 0 else 1
 
 
+def _add_review_record_args(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        "--review-record",
+        action="append",
+        dest="review_records",
+        type=Path,
+        default=[],
+        required=True,
+        help="machine-readable review record JSON; repeat for multiple records",
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="ane-context")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -66,6 +133,25 @@ def build_parser() -> argparse.ArgumentParser:
         "validate", help="validate the core references in a Context Package"
     )
     validate_parser.add_argument("path", type=Path)
+
+    review_parser = subparsers.add_parser(
+        "validate-review", help="validate a machine-readable review record"
+    )
+    review_parser.add_argument("path", type=Path)
+
+    promotion_parser = subparsers.add_parser(
+        "validate-promotion",
+        help="validate human-review evidence for a promoted Context Package",
+    )
+    promotion_parser.add_argument("path", type=Path)
+    _add_review_record_args(promotion_parser)
+
+    source_pack_parser = subparsers.add_parser(
+        "validate-source-pack",
+        help="validate human-review evidence for verified source-pack artifacts",
+    )
+    source_pack_parser.add_argument("path", type=Path)
+    _add_review_record_args(source_pack_parser)
 
     cdli_parser = subparsers.add_parser(
         "verify-cdli", help="resolve CDLI metadata for source-pack candidates"
@@ -82,6 +168,12 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     if args.command == "validate":
         return _validate(args.path)
+    if args.command == "validate-review":
+        return _validate_review(args.path)
+    if args.command == "validate-promotion":
+        return _validate_promotion(args.path, args.review_records)
+    if args.command == "validate-source-pack":
+        return _validate_source_pack(args.path, args.review_records)
     if args.command == "verify-cdli":
         return _verify_cdli(
             args.path,
