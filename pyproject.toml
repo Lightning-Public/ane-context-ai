@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ane-context-ai"
+version = "0.1.0"
+description = "Provenance-first Context Packages for Ancient Near Eastern research and learning"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [{name = "Lightning-Public contributors"}]
+keywords = ["ancient-near-east", "digital-humanities", "rag", "knowledge-graph"]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+]
+
+[project.scripts]
+ane-context = "ane_context_ai.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

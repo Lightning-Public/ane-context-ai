@@ -1,0 +1,27 @@
+{
+  "manifest_version": "0.1.0",
+  "status": "template-only",
+  "sources": [
+    {
+      "source_id": "oracc:replace-with-project",
+      "source_name": "Replace with the ORACC project name",
+      "source_url": "https://oracc.museum.upenn.edu/replace-with-project/",
+      "retrieved_at": null,
+      "source_version": null,
+      "content_scope": [],
+      "license": {
+        "expression": "LicenseRef-UNVERIFIED",
+        "evidence_url": null,
+        "verified_at": null,
+        "notes": "Do not ingest until the project/dataset-specific terms are verified."
+      },
+      "citation": null,
+      "acquisition": {
+        "method": "archive",
+        "query_or_path": null,
+        "sha256": null
+      },
+      "redistribution": "unknown"
+    }
+  ]
+}
