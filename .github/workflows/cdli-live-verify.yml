@@ -35,6 +35,33 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Inspect one response shape
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+
+          url = "https://cdli.earth/artifacts/6427.json"
+          request = Request(url, headers={"Accept": "application/json", "User-Agent": "ane-context-ai/0.1"})
+          with urlopen(request, timeout=30) as response:
+              payload = json.loads(response.read().decode("utf-8"))
+
+          shape = {"top_level_type": type(payload).__name__}
+          if isinstance(payload, list):
+              shape["length"] = len(payload)
+              shape["first_item_type"] = type(payload[0]).__name__ if payload else None
+              shape["first_item_keys"] = sorted(payload[0].keys()) if payload and isinstance(payload[0], dict) else []
+          elif isinstance(payload, dict):
+              shape["keys"] = sorted(payload.keys())
+
+          Path("verification").mkdir(parents=True, exist_ok=True)
+          Path("verification/cdli-response-shape.json").write_text(
+              json.dumps(shape, indent=2) + "\n", encoding="utf-8"
+          )
+          print(json.dumps(shape, indent=2))
+          PY
+
       - name: Run live verification
         id: verify
         continue-on-error: true
