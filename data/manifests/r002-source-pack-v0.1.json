@@ -18,30 +18,172 @@
     "notes": "Rights for each external asset must be verified separately before ingestion or redistribution."
   },
   "objects": [
-    {"object_id":"P006427","period":"Uruk III","status":"candidate"},
-    {"object_id":"P006428","period":"Uruk III","status":"candidate"},
-    {"object_id":"P448701","period":"Uruk III","status":"candidate"},
-    {"object_id":"P448702","period":"Uruk III","status":"candidate"},
-    {"object_id":"P448703","period":"Uruk III","status":"candidate"},
-    {"object_id":"P471695","period":"Uruk III","status":"candidate"},
-    {"object_id":"P482082","period":"Uruk III","status":"candidate"},
-    {"object_id":"P482083","period":"Uruk III","status":"candidate"},
-    {"object_id":"P499393","period":"Uruk III","status":"candidate"},
-    {"object_id":"P504412","period":"Uruk III","status":"candidate"},
-    {"object_id":"P504413","period":"Uruk III","status":"candidate"},
-    {"object_id":"P006438","period":"Uruk III","status":"candidate"},
-    {"object_id":"P000014","period":"Uruk III","status":"candidate"},
-    {"object_id":"P000456","period":"Uruk III","status":"candidate"},
-    {"object_id":"P002718","period":"Uruk III","status":"candidate"},
-    {"object_id":"P000021","period":"Uruk III","status":"candidate"},
-    {"object_id":"P000023","period":"Uruk III","status":"candidate"},
-    {"object_id":"P000025","period":"Uruk III","status":"candidate"},
-    {"object_id":"P000167","period":"Uruk III","status":"candidate"},
-    {"object_id":"P000453","period":"Uruk III","status":"candidate"},
-    {"object_id":"P000434","period":"Uruk III","status":"candidate"},
-    {"object_id":"P000481","period":"Uruk III","status":"candidate"},
-    {"object_id":"P000488","period":"Uruk III","status":"candidate"},
-    {"object_id":"P000628","period":"Uruk III","status":"candidate"}
+    {
+      "object_id": "P006427",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P006428",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P448701",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P448702",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P448703",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P471695",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P482082",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P482083",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P499393",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P504412",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P504413",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P006438",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P000014",
+      "period": "Uruk III",
+      "status": "candidate",
+      "source_review": {
+        "review_status": "metadata_checked_needs_expert_review",
+        "reviewed_at": "2026-08-21T06:57:00Z",
+        "stable_url": "https://cdli.earth/P000014",
+        "collection": "Vorderasiatisches Museum, Berlin, Germany",
+        "museum_no": "VAT 16773",
+        "provenience": "Uruk (mod. Warka)",
+        "current_genre": "Lexical; Archaic Pigs witness",
+        "primary_publication": "ATU 3, pl. 036, W 12139",
+        "transliteration_revision": "Robert K. Englund, approved 2016-04-12",
+        "issues": [
+          "ATU 3 plate not independently collated in this review.",
+          "Uncertain/damaged signs must retain # and ? markers."
+        ]
+      }
+    },
+    {
+      "object_id": "P000456",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P002718",
+      "period": "Uruk III",
+      "status": "candidate",
+      "source_review": {
+        "review_status": "metadata_checked_needs_expert_review",
+        "reviewed_at": "2026-08-21T06:57:00Z",
+        "stable_url": "https://cdli.earth/P002718",
+        "collection": "National Museum of Iraq, Baghdad, Iraq",
+        "museum_no": "IM 046049 ?",
+        "provenience": "Uruk (mod. Warka)",
+        "current_genre": "Administrative",
+        "primary_publication": "ATU 3, pl. 078, W 17729,cn+",
+        "transliteration_revision": "Robert K. Englund, approved 2018-02-12",
+        "issues": [
+          "Foreign ID LGE 5 and ATU 3 note Geography 5 require expert genre/function review.",
+          "Museum number contains an uncertainty marker.",
+          "ATU 3 plate not independently collated in this review."
+        ]
+      }
+    },
+    {
+      "object_id": "P000021",
+      "period": "Uruk III",
+      "status": "candidate",
+      "source_review": {
+        "review_status": "metadata_checked_needs_expert_review",
+        "reviewed_at": "2026-08-21T06:57:00Z",
+        "stable_url": "https://cdli.earth/P000021",
+        "collection": "Vorderasiatisches Museum, Berlin, Germany",
+        "museum_no": "VAT 16972",
+        "provenience": "Uruk (mod. Warka)",
+        "current_genre": "Lexical > Vocabularies; Archaic Vocabulary witness",
+        "primary_publication": "ATU 3, pl. 080, W 13948",
+        "transliteration_revision": "Robert K. Englund, approved 2015-11-18",
+        "issues": [
+          "ATU 3 plate not independently collated in this review.",
+          "Beginning/rest broken and uncertain signs must remain explicit."
+        ]
+      }
+    },
+    {
+      "object_id": "P000023",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P000025",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P000167",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P000453",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P000434",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P000481",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P000488",
+      "period": "Uruk III",
+      "status": "candidate"
+    },
+    {
+      "object_id": "P000628",
+      "period": "Uruk III",
+      "status": "candidate"
+    }
   ],
   "next_verification_fields": [
     "provenience",
@@ -52,5 +194,16 @@
     "inscription_availability",
     "asset_rights",
     "stable_url"
-  ]
+  ],
+  "review_summary": {
+    "reviewed_at": "2026-08-21T06:57:00Z",
+    "reviewer": "OpenAI GPT-5.6 Pro (source-audit assistant)",
+    "decision": "no_promotion",
+    "notes": [
+      "Three selected artifacts were metadata- and revision-history checked.",
+      "No artifact was promoted to verified because primary plate collation and Assyriologist review remain incomplete.",
+      "P002718 has a genre/function classification issue requiring expert review."
+    ],
+    "review_record": "docs/research/R002-origin-of-writing/reviews/2026-08-21-ai-source-audit.md"
+  }
 }
