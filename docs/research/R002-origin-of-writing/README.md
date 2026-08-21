@@ -15,11 +15,18 @@
 ## v0.1 Source Pack
 처음부터 대량 코퍼스를 수집하지 않는다. 20~50건의 소규모 고품질 자료 묶음을 만든다.
 
-권장 구성:
-- 초기 점토판 10~20건
+현재 작업본:
+- [Source Pack v0.1 — Uruk III working set](source-pack-v0.1.md)
+- [Machine-readable manifest](../../../data/manifests/r002-source-pack-v0.1.json)
+
+첫 작업본은 24개 CDLI P-number를 `candidate` 상태로 고정했다. 이 목록은 파이프라인 검증용 재현 가능한 working set이며 대표 표본이 아니다. 최신 CDLI 메타데이터와 권리 상태를 확인한 항목만 `verified`로 승격한다.
+
+목표 구성:
+- 초기 점토판 10~20건 이상
 - 대표 숫자·기호 또는 표기 사례 5~10건
 - 고고학·연대 Context 5건 내외
 - 현대 학술 해설·개론 5~10건
+- Uruk III뿐 아니라 Uruk IV 자료를 포함한 층화 표본
 
 ## 필수 메타데이터
 각 자료는 가능한 범위에서 다음을 유지한다.
