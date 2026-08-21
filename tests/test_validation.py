@@ -15,9 +15,17 @@ class ContextPackageValidationTests(unittest.TestCase):
         cls.example = json.loads(
             (ROOT / "examples" / "context-package.example.json").read_text(encoding="utf-8")
         )
+        cls.r002_draft = json.loads(
+            (ROOT / "examples" / "r002-origin-of-writing.context-package.json").read_text(
+                encoding="utf-8"
+            )
+        )
 
     def test_example_is_valid(self) -> None:
         validate_context_package(self.example)
+
+    def test_r002_draft_is_valid(self) -> None:
+        validate_context_package(self.r002_draft)
 
     def test_unknown_evidence_reference_is_rejected(self) -> None:
         package = deepcopy(self.example)
