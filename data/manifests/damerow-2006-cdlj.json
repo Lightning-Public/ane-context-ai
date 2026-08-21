@@ -1,0 +1,30 @@
+{
+  "manifest_version": "0.1.0",
+  "source_id": "cdli:cdlj:2006-1",
+  "source_name": "Peter Damerow, The Origins of Writing as a Problem of Historical Epistemology",
+  "source_url": "https://cdli.earth/articles/cdlj/2006-1",
+  "retrieved_at": "2026-08-21T06:57:00Z",
+  "source_version": "CDLJ 2006:1, published 2006-01-28; web edition observed 2026-08-21",
+  "content_scope": [
+    "article text",
+    "bibliographic metadata",
+    "sections 5-10 used as secondary scholarship"
+  ],
+  "license": {
+    "expression": "CC-BY-4.0",
+    "evidence_url": "https://cdli.earth/articles/cdlj/2006-1",
+    "verified_at": "2026-08-21T06:57:00Z",
+    "notes": "The article page states CC BY 4.0 except where noted and for artifact images, which remain under CDLI terms. This project stores paraphrased summaries and citations, not article images."
+  },
+  "citation": "Damerow, Peter. 2006. “The Origins of Writing as a Problem of Historical Epistemology.” Cuneiform Digital Library Journal 2006(1).",
+  "acquisition": {
+    "method": "manual",
+    "query_or_path": "HTML sections 5-10",
+    "sha256": null
+  },
+  "redistribution": "allowed",
+  "restrictions": {
+    "artifact_images": "Not covered by the article CC BY statement; follow CDLI artifact-image terms.",
+    "quoted_text": "Use attribution and copyright-compliant excerpts; this project currently stores paraphrases."
+  }
+}

@@ -27,12 +27,60 @@
   → 관련 구절·메타데이터·학술 해석 검색(RAG)
   → 인물·장소·시대·관계 탐색(Knowledge Graph)
   → 증거 / 해석 / 논쟁 / 불확실성 분리
-  → 인용 가능한 Context Package 생성
+  → AI-assisted audit
+  → 사람의 판본·행·권리 검토
+  → 인용 가능한 Context Package
+  → 초보자용 Learning View Model과 학습 화면
 ```
 
 ## 현재 상태
 
-초기 설계 단계입니다. 첫 번째 수직 실험은 ORACC의 공개 JSON 프로젝트 한 개를 대상으로 합니다. 실제 코퍼스 데이터는 아직 이 저장소에 포함하지 않습니다.
+- `ANE 101` 초보자 온보딩 Module 0–3 초안
+- `R002 — 문자는 왜 탄생했는가?` 연구 파일럿
+- Uruk III 후보 24건의 CDLI live resolution 완료: 24/24 resolved
+- 첫 source-linked Context Package 상태: `needs_revision`
+- CDLI 검증기, Context Package 검증기, GitHub Actions 테스트
+- 사람 전문가 검토 없이 `source_checked` 또는 artifact `verified`로 승격할 수 없는 review gate
+- 첫 초보자용 정적 학습 화면과 provenance-preserving Learning View Model
+- 로컬 QA와 Vercel Preview를 분리한 정적 배포 설정
+
+실제 외부 이미지와 대량 코퍼스 원본은 저장소에 포함하지 않습니다. 식별자·허용된 짧은 전사 인용·출처 및 권리 manifest를 중심으로 관리합니다.
+
+## 첫 학습 화면 실행
+
+저장소 루트에서 간단한 정적 서버를 실행합니다.
+
+```bash
+python -m http.server 8000
+```
+
+브라우저에서 다음 주소를 엽니다.
+
+```text
+http://localhost:8000/web/r002/
+```
+
+화면은 `examples/r002-origin-of-writing.context-package.json`을 직접 읽고 다음 층위를 분리해 표시합니다.
+
+- 지도와 연대표
+- 유물 신원과 전사
+- 자료가 직접 보여주는 내용
+- 비교를 통해 도출한 제한적 결론
+- 현대 학자의 해석
+- 논쟁과 불확실성
+- provenance와 사람 검토 상태
+
+현재 패키지는 `needs_revision`이므로 화면도 이를 상단에 명시하고 각 자료를 `verified 아님`으로 표시합니다. CDLI 사진이나 line art는 복제하지 않습니다.
+
+## 배포 방식
+
+로컬 HTTP 서버는 개발·시각 QA용입니다. 공유 가능한 PR 미리보기는 저장소 루트의 `vercel.json`을 이용한 Vercel Preview로 운영합니다. 현재 사이트는 순수 HTML/CSS/JavaScript이므로 별도 애플리케이션 서버나 데이터베이스가 필요하지 않습니다.
+
+- 로컬 QA: `python -m http.server 8000`
+- Vercel Preview: 브랜치·PR 검토용
+- Vercel Production: 검토 후 `main` 병합 버전 공개
+
+배포 설정과 검수 항목은 [Vercel 배포 문서](docs/deployment/vercel.md)를 따릅니다.
 
 ## 빠른 시작
 
@@ -40,6 +88,8 @@ Python 3.11 이상만 필요합니다.
 
 ```bash
 PYTHONPATH=src python -m ane_context_ai validate examples/context-package.example.json
+PYTHONPATH=src python -m ane_context_ai validate-review \
+  examples/r002-ai-source-audit.review-record.json
 PYTHONPATH=src python -m unittest discover -s tests
 ```
 
@@ -48,6 +98,29 @@ PYTHONPATH=src python -m unittest discover -s tests
 ```bash
 python -m pip install -e .
 ane-context validate examples/context-package.example.json
+ane-context validate-review examples/r002-ai-source-audit.review-record.json
+```
+
+Context Package에서 학습용 View Model 생성:
+
+```bash
+ane-context build-learning-view \
+  examples/r002-origin-of-writing.context-package.json \
+  --output /tmp/r002-learning-view.json
+```
+
+사람 검토를 받은 Context Package 승격 검증:
+
+```bash
+ane-context validate-promotion path/to/package.json \
+  --review-record path/to/human-review.json
+```
+
+artifact `verified` 승격 검증:
+
+```bash
+ane-context validate-source-pack data/manifests/source-pack.json \
+  --review-record path/to/artifact-review.json
 ```
 
 ## 저장소 구조
@@ -58,18 +131,28 @@ ane-context validate examples/context-package.example.json
 ├── PROJECT.md                 범위, 로드맵, 성공 기준
 ├── DATA-SOURCES.md            ORACC/CDLI/eBL/TLA 접근·권리 전략
 ├── RESEARCH-METHOD.md         사료비판 및 연구 절차
+├── vercel.json                정적 Preview/Production 경로 설정
 ├── docs/
+│   ├── onboarding/            ANE 101 학습 모듈
+│   ├── research/              연구 주제와 실행 기록
+│   ├── product/               학습 화면·제품 계약
+│   ├── deployment/            배포·공개 운영 절차
 │   ├── architecture.md        RAG + Knowledge Graph 설계
 │   ├── context-package.md     결과물 계약
+│   ├── review-workflow.md     사람 검토·승격 게이트
 │   └── data-governance.md     출처·라이선스·삭제 정책
 ├── data/
 │   ├── manifests/             소스별 획득·권리·버전 기록
 │   ├── raw/                   변경하지 않은 원본(커밋 금지)
 │   ├── interim/               중간 산출물(커밋 금지)
 │   └── processed/             파생 데이터(기본 커밋 금지)
-├── schemas/                   기계 판독 가능한 데이터 계약
-├── examples/                  합성 예시
-├── src/ane_context_ai/        최소 검증 도구
+├── schemas/
+│   ├── context-package.schema.json
+│   └── review-record.schema.json
+├── templates/                 검토 기록 등 기여 템플릿
+├── examples/                  합성 및 연구 예시
+├── src/ane_context_ai/        검증·획득·View Model 도구
+├── web/r002/                  첫 초보자용 정적 학습 화면
 └── tests/
 ```
 
@@ -80,15 +163,21 @@ ane-context validate examples/context-package.example.json
 3. **불확실성 보존** — 추정 연대, 출토지, 복원 문자, 논쟁적 동일시는 범위와 근거를 남깁니다.
 4. **라이선스 우선** — 접근 가능성과 재사용 가능성을 구분하고, 소스·자료 유형별 조건을 기록합니다.
 5. **재현 가능성** — 획득 시점, 버전, 쿼리, 변환 코드, 모델과 프롬프트를 기록합니다.
-6. **인간 검토** — AI 출력은 탐구의 출발점이며, 학술적 결론에는 판본과 연구 문헌의 검토가 필요합니다.
+6. **인간 검토 게이트** — API resolution과 AI audit은 문제를 찾을 수 있지만, 사람을 대신하여 `source_checked`, `expert_reviewed`, `verified`를 부여할 수 없습니다.
+7. **검토 이력 보존** — 누가 어떤 판본·도판·행을 확인했는지 별도 review record로 Git에 남깁니다.
+8. **학습 화면도 provenance 유지** — 초보자에게 쉽게 보여 주더라도 source ID, locator, claim status, review state를 제거하지 않습니다.
 
 ## 문서 안내
 
 - [프로젝트 계획](PROJECT.md)
 - [데이터 소스 전략](DATA-SOURCES.md)
 - [연구 방법과 사료비판](RESEARCH-METHOD.md)
+- [학습 경로](docs/learning-path.md)
+- [첫 학습 화면 계약](docs/product/first-learning-screen.md)
+- [Vercel 배포](docs/deployment/vercel.md)
 - [아키텍처](docs/architecture.md)
 - [Context Package 규격](docs/context-package.md)
+- [사람 검토와 승격](docs/review-workflow.md)
 - [데이터 거버넌스](docs/data-governance.md)
 
 ## 라이선스

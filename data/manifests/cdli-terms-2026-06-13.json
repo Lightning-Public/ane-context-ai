@@ -1,0 +1,33 @@
+{
+  "manifest_version": "0.1.0",
+  "source_id": "cdli:terms:2026-06-13",
+  "source_name": "Cuneiform Digital Library Initiative (CDLI)",
+  "source_url": "https://cdli.earth/",
+  "retrieved_at": "2026-08-21T06:25:50Z",
+  "source_version": "Terms of Use page dated 2026-06-13; REST API documentation dated 2026-06-14",
+  "content_scope": [
+    "artifact identifiers",
+    "artifact catalogue metadata",
+    "short transliteration excerpts",
+    "bibliographic references"
+  ],
+  "license": {
+    "expression": "LicenseRef-CDLI-Terms-of-Use-2026-06-13",
+    "evidence_url": "https://cdli.earth/terms-of-use",
+    "verified_at": "2026-08-21T06:25:50Z",
+    "notes": "CDLI states that transliterations and translations may be copied, aggregated, and reused under common and fair academic practice with source acknowledgement. Images remain subject to institution/author rights and are not redistributed. The terms page does not state a single explicit licence for all catalogue metadata, so this project stores only minimal cited metadata and stable identifiers pending a clearer licence statement."
+  },
+  "citation": "Cuneiform Digital Library Initiative (CDLI), https://cdli.earth/, accessed 2026-08-21.",
+  "acquisition": {
+    "method": "api",
+    "query_or_path": "GET /artifacts/{numeric-id}.json and cited artifact pages",
+    "sha256": null
+  },
+  "redistribution": "restricted",
+  "restrictions": {
+    "images": "Do not redistribute without item-specific permission or an explicit compatible licence.",
+    "line_art": "Do not redistribute without publication/author permission or explicit compatible licence.",
+    "transliterations_and_translations": "May be reused with academic attribution under the CDLI terms.",
+    "metadata": "Minimal cited fields only until an explicit dataset licence is confirmed."
+  }
+}
