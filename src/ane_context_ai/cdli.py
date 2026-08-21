@@ -135,6 +135,14 @@ def _all(record: Mapping[str, Any], aliases: set[str]) -> list[str]:
     return values
 
 
+def _has_nonempty(record: Mapping[str, Any], aliases: set[str]) -> bool:
+    normalized = {_key(alias) for alias in aliases}
+    for key, value in _walk_mapping(record):
+        if _key(key) in normalized and value not in (None, "", [], {}):
+            return True
+    return False
+
+
 def normalize_artifact_metadata(
     p_number: str,
     record: Mapping[str, Any],
@@ -164,8 +172,8 @@ def normalize_artifact_metadata(
             record, {"museum_no", "museum_number", "museumNumber", "museum_numbers"}
         ),
         "publications": _all(record, {"publication", "publications", "designation"}),
-        "inscription_availability": bool(
-            _all(record, {"inscription", "inscriptions", "transliteration", "transcription"})
+        "inscription_availability": _has_nonempty(
+            record, {"inscription", "inscriptions", "transliteration", "transcription"}
         ),
         "raw": dict(record),
     }
