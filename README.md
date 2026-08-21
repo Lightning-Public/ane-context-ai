@@ -30,6 +30,7 @@
   → AI-assisted audit
   → 사람의 판본·행·권리 검토
   → 인용 가능한 Context Package
+  → 초보자용 Learning View Model과 학습 화면
 ```
 
 ## 현재 상태
@@ -40,8 +41,35 @@
 - 첫 source-linked Context Package 상태: `needs_revision`
 - CDLI 검증기, Context Package 검증기, GitHub Actions 테스트
 - 사람 전문가 검토 없이 `source_checked` 또는 artifact `verified`로 승격할 수 없는 review gate
+- 첫 초보자용 정적 학습 화면과 provenance-preserving Learning View Model
 
 실제 외부 이미지와 대량 코퍼스 원본은 저장소에 포함하지 않습니다. 식별자·허용된 짧은 전사 인용·출처 및 권리 manifest를 중심으로 관리합니다.
+
+## 첫 학습 화면 실행
+
+저장소 루트에서 간단한 정적 서버를 실행합니다.
+
+```bash
+python -m http.server 8000
+```
+
+브라우저에서 다음 주소를 엽니다.
+
+```text
+http://localhost:8000/web/r002/
+```
+
+화면은 `examples/r002-origin-of-writing.context-package.json`을 직접 읽고 다음 층위를 분리해 표시합니다.
+
+- 지도와 연대표
+- 유물 신원과 전사
+- 자료가 직접 보여주는 내용
+- 비교를 통해 도출한 제한적 결론
+- 현대 학자의 해석
+- 논쟁과 불확실성
+- provenance와 사람 검토 상태
+
+현재 패키지는 `needs_revision`이므로 화면도 이를 상단에 명시하고 각 자료를 `verified 아님`으로 표시합니다. CDLI 사진이나 line art는 복제하지 않습니다.
 
 ## 빠른 시작
 
@@ -60,6 +88,14 @@ PYTHONPATH=src python -m unittest discover -s tests
 python -m pip install -e .
 ane-context validate examples/context-package.example.json
 ane-context validate-review examples/r002-ai-source-audit.review-record.json
+```
+
+Context Package에서 학습용 View Model 생성:
+
+```bash
+ane-context build-learning-view \
+  examples/r002-origin-of-writing.context-package.json \
+  --output /tmp/r002-learning-view.json
 ```
 
 사람 검토를 받은 Context Package 승격 검증:
@@ -87,6 +123,7 @@ ane-context validate-source-pack data/manifests/source-pack.json \
 ├── docs/
 │   ├── onboarding/            ANE 101 학습 모듈
 │   ├── research/              연구 주제와 실행 기록
+│   ├── product/               학습 화면·제품 계약
 │   ├── architecture.md        RAG + Knowledge Graph 설계
 │   ├── context-package.md     결과물 계약
 │   ├── review-workflow.md     사람 검토·승격 게이트
@@ -101,7 +138,8 @@ ane-context validate-source-pack data/manifests/source-pack.json \
 │   └── review-record.schema.json
 ├── templates/                 검토 기록 등 기여 템플릿
 ├── examples/                  합성 및 연구 예시
-├── src/ane_context_ai/        검증·획득 도구
+├── src/ane_context_ai/        검증·획득·View Model 도구
+├── web/r002/                  첫 초보자용 정적 학습 화면
 └── tests/
 ```
 
@@ -114,6 +152,7 @@ ane-context validate-source-pack data/manifests/source-pack.json \
 5. **재현 가능성** — 획득 시점, 버전, 쿼리, 변환 코드, 모델과 프롬프트를 기록합니다.
 6. **인간 검토 게이트** — API resolution과 AI audit은 문제를 찾을 수 있지만, 사람을 대신하여 `source_checked`, `expert_reviewed`, `verified`를 부여할 수 없습니다.
 7. **검토 이력 보존** — 누가 어떤 판본·도판·행을 확인했는지 별도 review record로 Git에 남깁니다.
+8. **학습 화면도 provenance 유지** — 초보자에게 쉽게 보여 주더라도 source ID, locator, claim status, review state를 제거하지 않습니다.
 
 ## 문서 안내
 
@@ -121,6 +160,7 @@ ane-context validate-source-pack data/manifests/source-pack.json \
 - [데이터 소스 전략](DATA-SOURCES.md)
 - [연구 방법과 사료비판](RESEARCH-METHOD.md)
 - [학습 경로](docs/learning-path.md)
+- [첫 학습 화면 계약](docs/product/first-learning-screen.md)
 - [아키텍처](docs/architecture.md)
 - [Context Package 규격](docs/context-package.md)
 - [사람 검토와 승격](docs/review-workflow.md)
