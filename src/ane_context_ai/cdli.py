@@ -89,6 +89,11 @@ def _display(value: Any) -> str | None:
                 rendered = _display(value[name])
                 if rendered:
                     return rendered
+    if isinstance(value, Sequence) and not isinstance(value, (str, bytes, bytearray)):
+        for item in value:
+            rendered = _display(item)
+            if rendered:
+                return rendered
     return None
 
 
