@@ -42,6 +42,7 @@
 - CDLI 검증기, Context Package 검증기, GitHub Actions 테스트
 - 사람 전문가 검토 없이 `source_checked` 또는 artifact `verified`로 승격할 수 없는 review gate
 - 첫 초보자용 정적 학습 화면과 provenance-preserving Learning View Model
+- 로컬 QA와 Vercel Preview를 분리한 정적 배포 설정
 
 실제 외부 이미지와 대량 코퍼스 원본은 저장소에 포함하지 않습니다. 식별자·허용된 짧은 전사 인용·출처 및 권리 manifest를 중심으로 관리합니다.
 
@@ -70,6 +71,16 @@ http://localhost:8000/web/r002/
 - provenance와 사람 검토 상태
 
 현재 패키지는 `needs_revision`이므로 화면도 이를 상단에 명시하고 각 자료를 `verified 아님`으로 표시합니다. CDLI 사진이나 line art는 복제하지 않습니다.
+
+## 배포 방식
+
+로컬 HTTP 서버는 개발·시각 QA용입니다. 공유 가능한 PR 미리보기는 저장소 루트의 `vercel.json`을 이용한 Vercel Preview로 운영합니다. 현재 사이트는 순수 HTML/CSS/JavaScript이므로 별도 애플리케이션 서버나 데이터베이스가 필요하지 않습니다.
+
+- 로컬 QA: `python -m http.server 8000`
+- Vercel Preview: 브랜치·PR 검토용
+- Vercel Production: 검토 후 `main` 병합 버전 공개
+
+배포 설정과 검수 항목은 [Vercel 배포 문서](docs/deployment/vercel.md)를 따릅니다.
 
 ## 빠른 시작
 
@@ -120,10 +131,12 @@ ane-context validate-source-pack data/manifests/source-pack.json \
 ├── PROJECT.md                 범위, 로드맵, 성공 기준
 ├── DATA-SOURCES.md            ORACC/CDLI/eBL/TLA 접근·권리 전략
 ├── RESEARCH-METHOD.md         사료비판 및 연구 절차
+├── vercel.json                정적 Preview/Production 경로 설정
 ├── docs/
 │   ├── onboarding/            ANE 101 학습 모듈
 │   ├── research/              연구 주제와 실행 기록
 │   ├── product/               학습 화면·제품 계약
+│   ├── deployment/            배포·공개 운영 절차
 │   ├── architecture.md        RAG + Knowledge Graph 설계
 │   ├── context-package.md     결과물 계약
 │   ├── review-workflow.md     사람 검토·승격 게이트
@@ -161,6 +174,7 @@ ane-context validate-source-pack data/manifests/source-pack.json \
 - [연구 방법과 사료비판](RESEARCH-METHOD.md)
 - [학습 경로](docs/learning-path.md)
 - [첫 학습 화면 계약](docs/product/first-learning-screen.md)
+- [Vercel 배포](docs/deployment/vercel.md)
 - [아키텍처](docs/architecture.md)
 - [Context Package 규격](docs/context-package.md)
 - [사람 검토와 승격](docs/review-workflow.md)
