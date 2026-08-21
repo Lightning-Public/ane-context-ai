@@ -11,6 +11,15 @@ on:
       - "src/ane_context_ai/cli.py"
       - "data/manifests/r002-source-pack-v0.1.json"
       - ".github/workflows/cdli-live-verify.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "src/ane_context_ai/cdli.py"
+      - "src/ane_context_ai/cdli_manifest.py"
+      - "src/ane_context_ai/cli.py"
+      - "data/manifests/r002-source-pack-v0.1.json"
+      - ".github/workflows/cdli-live-verify.yml"
 
 permissions:
   contents: read
@@ -40,11 +49,12 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import os
           from pathlib import Path
 
           path = Path("verification/r002-source-pack-v0.1.live.json")
           if not path.exists():
-              summary = "## CDLI live verification\n\nNo result file was produced."
+              summary = "## CDLI live verification\n\nNo result file was produced.\n"
           else:
               payload = json.loads(path.read_text(encoding="utf-8"))
               run = payload.get("verification_run", {})
@@ -54,13 +64,12 @@ jobs:
                   f"- Resolved: {run.get('resolved', 0)}\n"
                   f"- Errors: {run.get('errors', 0)}\n"
                   f"- Retrieved at: {run.get('retrieved_at', 'unknown')}\n"
-                  f"- CLI outcome: ${{{{ steps.verify.outcome }}}}\n"
+                  "- Candidate records remain unpromoted until human review.\n"
               )
           Path("verification/summary.md").parent.mkdir(parents=True, exist_ok=True)
           Path("verification/summary.md").write_text(summary, encoding="utf-8")
-          with Path("verification/summary.md").open(encoding="utf-8") as handle:
-              with Path(__import__('os').environ['GITHUB_STEP_SUMMARY']).open('a', encoding='utf-8') as out:
-                  out.write(handle.read())
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as out:
+              out.write(summary)
           PY
 
       - name: Upload verification result
