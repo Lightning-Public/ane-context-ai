@@ -2,6 +2,7 @@ import unittest
 
 from ane_context_ai.cdli import (
     CDLIClient,
+    CDLIError,
     artifact_api_url,
     artifact_numeric_id,
     normalize_artifact_metadata,
@@ -17,9 +18,9 @@ SAMPLE_RECORD = {
     "provenience": {"name": "Uruk (mod. Warka)"},
     "genres": [{"name": "Administrative"}],
     "collections": [{"name": "Vorderasiatisches Museum, Berlin"}],
-    "museum_number": "W 00000",
+    "museum_no": "W 00000",
     "publications": [{"designation": "Sample publication"}],
-    "inscriptions": [{"id": 123}],
+    "inscription": {"id": 123},
 }
 
 
@@ -46,6 +47,20 @@ class CDLIHelpersTests(unittest.TestCase):
         self.assertEqual(metadata["museum_no"], "W 00000")
         self.assertEqual(metadata["publications"], ["Sample publication"])
         self.assertTrue(metadata["inscription_availability"])
+        self.assertIn("period", metadata["response_fields"])
+
+    def test_live_style_single_item_array_is_unwrapped(self) -> None:
+        client = CDLIClient(transport=lambda _url, _timeout: [SAMPLE_RECORD])
+        metadata = client.get_artifact("P006427")
+
+        self.assertEqual(metadata["object_id"], "P006427")
+        self.assertEqual(metadata["period"], "Uruk III")
+
+    def test_ambiguous_array_is_rejected(self) -> None:
+        client = CDLIClient(transport=lambda _url, _timeout: [SAMPLE_RECORD, SAMPLE_RECORD])
+
+        with self.assertRaisesRegex(CDLIError, "expected exactly one artifact"):
+            client.get_artifact("P006427")
 
 
 class CDLIVerifierTests(unittest.TestCase):
@@ -55,7 +70,7 @@ class CDLIVerifierTests(unittest.TestCase):
         def transport(url: str, timeout: float):
             self.urls.append(url)
             self.assertEqual(timeout, 3.0)
-            return SAMPLE_RECORD
+            return [SAMPLE_RECORD]
 
         self.client = CDLIClient(timeout=3.0, transport=transport)
 
