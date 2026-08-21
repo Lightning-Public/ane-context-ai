@@ -31,6 +31,8 @@ jobs:
           python -m json.tool /tmp/r002-learning-view.json >/dev/null
       - name: Check browser JavaScript syntax
         run: node --check web/r002/app.js
+      - name: Validate Vercel configuration
+        run: python -m json.tool vercel.json >/dev/null
       - name: Smoke-test static prototype routes
         run: |
           python -m http.server 8000 >/tmp/ane-context-http.log 2>&1 &
