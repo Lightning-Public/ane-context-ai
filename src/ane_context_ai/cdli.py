@@ -50,6 +50,27 @@ def artifact_page_url(p_number: str, base_url: str = DEFAULT_BASE_URL) -> str:
     return urljoin(base_url.rstrip("/") + "/", canonical)
 
 
+def _coerce_record_payload(payload: Any, url: str) -> Mapping[str, Any]:
+    """Normalize CDLI's single-artifact JSON response into one mapping.
+
+    The live ``/artifacts/{id}.json`` route currently returns a one-item JSON
+    array. A direct mapping is also accepted for compatibility. Empty or
+    multi-record responses are rejected rather than guessed.
+    """
+
+    if isinstance(payload, Mapping):
+        return payload
+
+    if isinstance(payload, Sequence) and not isinstance(payload, (str, bytes, bytearray)):
+        if len(payload) == 1 and isinstance(payload[0], Mapping):
+            return payload[0]
+        raise CDLIError(
+            f"CDLI returned {len(payload)} records for {url}; expected exactly one artifact"
+        )
+
+    raise CDLIError(f"CDLI returned unsupported JSON type for {url}: {type(payload).__name__}")
+
+
 def _http_get_json(url: str, timeout: float) -> Mapping[str, Any]:
     request = Request(
         url,
@@ -68,9 +89,7 @@ def _http_get_json(url: str, timeout: float) -> Mapping[str, Any]:
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise CDLIError(f"CDLI returned invalid JSON for {url}") from exc
 
-    if not isinstance(payload, Mapping):
-        raise CDLIError(f"CDLI returned a non-object JSON payload for {url}")
-    return payload
+    return _coerce_record_payload(payload, url)
 
 
 def _key(value: str) -> str:
@@ -188,7 +207,7 @@ class CDLIClient:
         base_url: str = DEFAULT_BASE_URL,
         *,
         timeout: float = 20.0,
-        transport: Callable[[str, float], Mapping[str, Any]] | None = None,
+        transport: Callable[[str, float], Any] | None = None,
     ) -> None:
         self.base_url = base_url.rstrip("/") + "/"
         self.timeout = timeout
@@ -197,7 +216,8 @@ class CDLIClient:
     def get_artifact(self, p_number: str) -> dict[str, Any]:
         canonical = normalize_p_number(p_number)
         url = artifact_api_url(canonical, self.base_url)
-        record = self.transport(url, self.timeout)
+        payload = self.transport(url, self.timeout)
+        record = _coerce_record_payload(payload, url)
         return normalize_artifact_metadata(canonical, record, base_url=self.base_url)
 
 
