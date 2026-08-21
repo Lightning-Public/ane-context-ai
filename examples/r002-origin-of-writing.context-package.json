@@ -16,124 +16,202 @@
         "Undetermined / proto-cuneiform"
       ],
       "genres": [
-        "Administrative",
+        "Administrative (current CDLI label)",
         "Lexical",
-        "Vocabularies"
+        "Lexical > Vocabularies"
       ],
       "notes": [
-        "이 초안은 문자 발생의 최초 순간보다 뒤인 Uruk III기 자료 세 점을 비교한다.",
-        "선정 자료는 대표 표본이 아니라 파이프라인 검증용 소규모 사례다."
+        "이 검토본은 문자 발생의 최초 단계보다 뒤인 Uruk III기 자료 세 점을 비교한다.",
+        "선정 자료는 대표 표본이 아니라 파이프라인 검증용 소규모 사례다.",
+        "P002718의 현재 CDLI 장르 표시는 Administrative이지만 ATU 3의 Geography 5 연계 표기가 있어 기능 분류를 전문가가 재검토해야 한다."
       ]
     }
   },
   "evidence": [
     {
-      "id": "ev:cdli:P002718",
+      "id": "ev:cdli:P002718:metadata",
       "source": "Cuneiform Digital Library Initiative (CDLI)",
       "source_record_id": "P002718",
       "stable_url": "https://cdli.earth/P002718",
-      "locator": "artifact metadata; obverse column 1, lines 1–4",
-      "layer": "transliteration",
-      "excerpt": "DUR2 SZEN~a A; BU3 URU~a1; |SZE~a&SZE~a| KI; TUR3~a A",
-      "attribution": "CDLI; transliteration credited on the artifact record; primary publication ATU 3",
+      "locator": "catalogue metadata, related publications, revisions and credits",
+      "layer": "artifact",
+      "excerpt": "Uruk III; Uruk (mod. Warka); Administrative; National Museum of Iraq; museum no. IM 046049 ?; primary publication ATU 3, pl. 78, W 17729,cn+.",
+      "attribution": "CDLI artifact record P002718; metadata revision approved 2023-07-03; accessed 2026-08-21.",
       "license_manifest_id": "cdli:terms:2026-06-13"
     },
     {
-      "id": "ev:cdli:P000014",
+      "id": "ev:cdli:P002718:transliteration",
+      "source": "Cuneiform Digital Library Initiative (CDLI)",
+      "source_record_id": "P002718",
+      "stable_url": "https://cdli.earth/P002718",
+      "locator": "obverse, column 1, lines 1–4",
+      "layer": "transliteration",
+      "excerpt": "1. DUR2# SZEN~a A\n2. BU3# URU~a1\n3. |SZE~a&SZE~a|#? KI\n4. TUR3~a A",
+      "attribution": "CDLI P002718; current transliteration revision attributed to Robert K. Englund and approved 2018-02-12; earlier revisions by Jacob L. Dahl and CDLI; primary publication ATU 3, pl. 78.",
+      "license_manifest_id": "cdli:terms:2026-06-13"
+    },
+    {
+      "id": "ev:cdli:P000014:metadata",
       "source": "Cuneiform Digital Library Initiative (CDLI)",
       "source_record_id": "P000014",
       "stable_url": "https://cdli.earth/P000014",
-      "locator": "artifact metadata; obverse column 1, lines 1–4",
-      "layer": "transliteration",
-      "excerpt": "1(N01) SZUBUR; |1(N57).SZUBUR|; |2(N57).SZUBUR|; U4 SZUBUR",
-      "attribution": "CDLI; transliteration credited on the artifact record; primary publication ATU 3",
+      "locator": "catalogue metadata, related publications, revisions and credits",
+      "layer": "artifact",
+      "excerpt": "Uruk III; Uruk (mod. Warka); Lexical, Archaic Pigs witness; Vorderasiatisches Museum; VAT 16773; primary publication ATU 3, pl. 36, W 12139.",
+      "attribution": "CDLI artifact record P000014; metadata revision approved 2023-07-03; accessed 2026-08-21.",
       "license_manifest_id": "cdli:terms:2026-06-13"
     },
     {
-      "id": "ev:cdli:P000021",
+      "id": "ev:cdli:P000014:transliteration",
+      "source": "Cuneiform Digital Library Initiative (CDLI)",
+      "source_record_id": "P000014",
+      "stable_url": "https://cdli.earth/P000014",
+      "locator": "obverse, column 1, lines 1–4",
+      "layer": "transliteration",
+      "excerpt": "1. 1(N01) , SZUBUR\n2. 1(N01) , |1(N57).SZUBUR|\n3. 1(N01) , |2(N57).SZUBUR|\n4. 1(N01) , U4 SZUBUR#",
+      "attribution": "CDLI P000014; current transliteration revision attributed to Robert K. Englund and approved 2016-04-12; earlier revisions by Jacob L. Dahl and CDLI; primary publication ATU 3, pl. 36.",
+      "license_manifest_id": "cdli:terms:2026-06-13"
+    },
+    {
+      "id": "ev:cdli:P000021:metadata",
       "source": "Cuneiform Digital Library Initiative (CDLI)",
       "source_record_id": "P000021",
       "stable_url": "https://cdli.earth/P000021",
-      "locator": "artifact metadata; obverse column 1, lines 1–5",
-      "layer": "transliteration",
-      "excerpt": "1(N01) [...]; 1(N01) GURUSZ~a KI; 1(N01) U4 |KAK~a.GA2~a1|",
-      "attribution": "CDLI; transliteration credited on the artifact record; primary publication ATU 3",
+      "locator": "catalogue metadata, related publications, revisions and credits",
+      "layer": "artifact",
+      "excerpt": "Uruk III; Uruk (mod. Warka); Lexical > Vocabularies, Archaic Vocabulary witness; Vorderasiatisches Museum; VAT 16972; primary publication ATU 3, pl. 80, W 13948.",
+      "attribution": "CDLI artifact record P000021; metadata revision approved 2023-07-03; accessed 2026-08-21.",
       "license_manifest_id": "cdli:terms:2026-06-13"
+    },
+    {
+      "id": "ev:cdli:P000021:transliteration",
+      "source": "Cuneiform Digital Library Initiative (CDLI)",
+      "source_record_id": "P000021",
+      "stable_url": "https://cdli.earth/P000021",
+      "locator": "obverse, column 1, beginning broken, lines 1–5",
+      "layer": "transliteration",
+      "excerpt": "1. 1(N01) , [...]\n2. 1(N01) , GURUSZ~a KI\n3. 1(N01) , U4# |KAK~a.GA2~a1|\n4. 1(N01) , [...] |KAK~a.GA2~a1|\n5. 1(N01) , [...] X",
+      "attribution": "CDLI P000021; current transliteration revisions attributed to Robert K. Englund and approved 2015-11-18; earlier revisions by Jacob L. Dahl and CDLI; primary publication ATU 3, pl. 80.",
+      "license_manifest_id": "cdli:terms:2026-06-13"
+    },
+    {
+      "id": "ev:secondary:damerow2006:sections-5-6",
+      "source": "Peter Damerow, The Origins of Writing as a Problem of Historical Epistemology",
+      "source_record_id": "CDLJ-2006-1",
+      "stable_url": "https://cdli.earth/articles/cdlj/2006-1",
+      "locator": "§§5–6",
+      "layer": "secondary",
+      "excerpt": "Summary: Damerow characterizes most proto-cuneiform texts as bookkeeping documents and treats lexical lists as school exercises shaped by similarly restricted semantic categories.",
+      "attribution": "Peter Damerow, Cuneiform Digital Library Journal 2006:1, CC BY 4.0.",
+      "license_manifest_id": "cdli:cdlj:2006-1"
+    },
+    {
+      "id": "ev:secondary:damerow2006:sections-9-10",
+      "source": "Peter Damerow, The Origins of Writing as a Problem of Historical Epistemology",
+      "source_record_id": "CDLJ-2006-1",
+      "stable_url": "https://cdli.earth/articles/cdlj/2006-1",
+      "locator": "§§9–10",
+      "layer": "secondary",
+      "excerpt": "Summary: Damerow presents proto-cuneiform as continuous with earlier administrative devices and cautions that its later adaptation to oral language was a further developmental stage.",
+      "attribution": "Peter Damerow, Cuneiform Digital Library Journal 2006:1, CC BY 4.0.",
+      "license_manifest_id": "cdli:cdlj:2006-1"
     }
   ],
   "claims": [
     {
       "id": "claim:r002:001",
-      "statement": "P002718은 우루크에서 출토된 Uruk III기 행정 점토판으로 분류된다.",
+      "statement": "CDLI는 현재 P002718을 우루크 출토 Uruk III기 점토판으로 기록하고 장르를 Administrative로 표시한다.",
       "status": "attested",
       "supporting_evidence_ids": [
-        "ev:cdli:P002718"
+        "ev:cdli:P002718:metadata"
       ],
       "challenging_evidence_ids": [],
       "confidence": "high",
-      "reasoning": "CDLI의 현재 유물 메타데이터가 시대·출토지·장르를 직접 제공한다."
+      "reasoning": "현재 CDLI 유물 메타데이터가 시대·출토지·장르를 직접 제공한다. 다만 장르의 역사적 해석은 별도 불확실성으로 남긴다."
     },
     {
       "id": "claim:r002:002",
-      "statement": "동일한 Uruk III기 우루크 자료군에는 행정 기록뿐 아니라 lexical 및 vocabulary 문헌도 존재한다.",
+      "statement": "CDLI는 P000014를 Lexical의 Archaic Pigs witness로, P000021을 Lexical > Vocabularies의 Archaic Vocabulary witness로 분류하며 둘 다 Uruk III기 우루크 자료로 기록한다.",
       "status": "attested",
       "supporting_evidence_ids": [
-        "ev:cdli:P000014",
-        "ev:cdli:P000021"
+        "ev:cdli:P000014:metadata",
+        "ev:cdli:P000021:metadata"
       ],
       "challenging_evidence_ids": [],
       "confidence": "high",
-      "reasoning": "CDLI는 P000014를 Lexical, P000021을 Vocabularies로 분류한다."
+      "reasoning": "현재 CDLI의 상세 장르·시대·출토지 메타데이터를 그대로 기술한다."
     },
     {
       "id": "claim:r002:003",
-      "statement": "이 세 자료는 Uruk III기의 기록 체계가 행정적 기록과 어휘 분류라는 복수의 기능에 사용되었음을 보여 준다.",
+      "statement": "세 레코드의 현재 카탈로그 표시는 Administrative와 Lexical/Vocabularies 범주를 함께 포함하지만, 이것만으로 서로 독립된 역사적 기능이나 발생 순서를 입증할 수는 없다.",
       "status": "derived",
       "supporting_evidence_ids": [
-        "ev:cdli:P002718",
-        "ev:cdli:P000014",
-        "ev:cdli:P000021"
+        "ev:cdli:P002718:metadata",
+        "ev:cdli:P000014:metadata",
+        "ev:cdli:P000021:metadata",
+        "ev:secondary:damerow2006:sections-5-6"
       ],
       "challenging_evidence_ids": [],
       "confidence": "medium",
-      "reasoning": "서로 다른 장르 분류와 표기 배열을 비교한 제한적 결론이며 전체 코퍼스의 비율이나 발생 순서를 입증하지 않는다."
+      "reasoning": "카탈로그 장르를 비교한 제한적 결론이다. 특히 P002718은 ATU 3의 Geography 5 연계 표기 때문에 기능 분류를 재검토해야 한다."
     },
     {
       "id": "claim:r002:004",
-      "statement": "이 소규모 Uruk III 표본만으로 문자가 행정 복잡성 때문에 단일 시점에 발명되었다고 결론 내릴 수 없다.",
+      "statement": "이 소규모 Uruk III 표본만으로 문자가 행정 복잡성이라는 단일 원인 때문에 특정 순간에 발명되었다고 결론 내릴 수 없다.",
       "status": "derived",
       "supporting_evidence_ids": [
-        "ev:cdli:P002718",
-        "ev:cdli:P000014",
-        "ev:cdli:P000021"
+        "ev:cdli:P002718:metadata",
+        "ev:cdli:P000014:metadata",
+        "ev:cdli:P000021:metadata",
+        "ev:secondary:damerow2006:sections-9-10"
       ],
       "challenging_evidence_ids": [],
       "confidence": "high",
-      "reasoning": "표본은 최초 문자 단계보다 뒤의 자료이고, 행정·lexical·vocabulary 장르가 함께 존재하므로 기원에 대한 단일 인과 명제를 직접 검증하지 못한다."
+      "reasoning": "표본은 Uruk III에 한정되고 대표성이 없으며, 문자 발생 이전의 행정 장치와 이후의 언어 표기 발전을 함께 검토해야 한다."
+    },
+    {
+      "id": "claim:r002:005",
+      "statement": "Damerow는 proto-cuneiform의 초기 적용이 주로 행정적 기록에 제한되었다고 보면서도 lexical lists를 학교 훈련과 지식 조직의 일부로 다룬다.",
+      "status": "scholarly_interpretation",
+      "supporting_evidence_ids": [
+        "ev:secondary:damerow2006:sections-5-6",
+        "ev:secondary:damerow2006:sections-9-10"
+      ],
+      "challenging_evidence_ids": [],
+      "confidence": "high",
+      "reasoning": "CDLJ 논문의 §§5–10에서 제시한 논지를 요약한 것이다."
     }
   ],
   "debates": [
     {
-      "issue": "행정 복잡성이 문자 발생의 주된 원인이었는가?",
+      "issue": "행정적 필요가 proto-cuneiform 형성의 핵심이었는가?",
       "positions": [
         {
-          "summary": "행정 점토판 P002718은 수량·대상·분류를 기록하는 체계가 도시 운영과 연결되었을 가능성과 양립한다.",
+          "summary": "행정 연속성 모델은 토큰·봉인·표준 용기 같은 선행 장치와 proto-cuneiform의 제한된 초기 적용 맥락을 하나의 장기적 행정 발전 과정으로 본다.",
           "evidence_ids": [
-            "ev:cdli:P002718"
+            "ev:secondary:damerow2006:sections-9-10"
           ]
         },
         {
-          "summary": "lexical 및 vocabulary 자료는 초기 기록 문화가 분류·지식 조직에도 사용되었음을 보여 주므로, 문자 발생과 발전을 행정 하나로 환원해서는 안 된다.",
+          "summary": "lexical lists는 행정문서와 다른 학교·분류 활동을 보여 주지만, Damerow의 해석에서는 이 목록들 역시 행정 기록과 관련된 제한적 의미 범주에 뿌리를 둔다.",
           "evidence_ids": [
-            "ev:cdli:P000014",
-            "ev:cdli:P000021"
+            "ev:cdli:P000014:metadata",
+            "ev:cdli:P000021:metadata",
+            "ev:secondary:damerow2006:sections-5-6"
+          ]
+        },
+        {
+          "summary": "현재 표본의 P002718은 CDLI 장르가 Administrative이면서 ATU 3의 Geography 5 연계 표기를 갖기 때문에, 명확한 행정 대 lexical 대조 사례로 사용하기 전에 분류 검토가 필요하다.",
+          "evidence_ids": [
+            "ev:cdli:P002718:metadata"
           ]
         }
       ],
       "open_questions": [
-        "Uruk IV의 더 이른 자료에서도 같은 기능 구성이 확인되는가?",
-        "행정·lexical 자료의 상대적 빈도와 출토 맥락은 어떻게 다른가?",
-        "토큰·봉니·수 체계와 proto-cuneiform 사이의 변화는 어떤 순서로 나타나는가?"
+        "P002718의 Foreign ID LGE 5 및 Geography 5 표기와 현재 Administrative 장르의 관계는 무엇인가?",
+        "Uruk IV의 더 이른 자료에서도 행정 기록과 lexical 목록의 관계가 같은가?",
+        "행정·lexical 자료의 상대적 빈도와 구체적 출토 맥락은 어떻게 다른가?",
+        "토큰·봉니·수 체계와 proto-cuneiform 사이의 변화는 어떤 순서와 지역 차이를 보이는가?"
       ]
     }
   ],
@@ -141,77 +219,108 @@
     {
       "target": "sample coverage",
       "kind": "coverage",
-      "description": "세 자료는 재현 가능한 후보군에서 선택한 사례이며 Uruk III 전체를 대표하지 않는다.",
+      "description": "세 자료는 편의적으로 구성한 후보군에서 고른 사례이며 Uruk III 전체 코퍼스나 최초 문자 단계를 대표하지 않는다.",
       "evidence_ids": [
-        "ev:cdli:P002718",
-        "ev:cdli:P000014",
-        "ev:cdli:P000021"
+        "ev:cdli:P002718:metadata",
+        "ev:cdli:P000014:metadata",
+        "ev:cdli:P000021:metadata"
       ]
     },
     {
       "target": "origin chronology",
       "kind": "chronology",
-      "description": "Uruk III기 자료는 최초 기록 단계보다 뒤이므로 문자 발생의 최초 원인을 직접 증명하지 않는다.",
+      "description": "세 자료는 Uruk III기로 분류된다. 문자 발생의 더 이른 단계와 선행 행정 장치를 포함하지 않으므로 최초 원인을 직접 증명하지 않는다.",
       "evidence_ids": [
-        "ev:cdli:P002718",
-        "ev:cdli:P000014",
-        "ev:cdli:P000021"
+        "ev:cdli:P002718:metadata",
+        "ev:cdli:P000014:metadata",
+        "ev:cdli:P000021:metadata",
+        "ev:secondary:damerow2006:sections-9-10"
       ]
     },
     {
-      "target": "sign interpretation",
-      "kind": "interpretation",
-      "description": "문헌 언어가 undetermined로 분류되고 일부 기호 판독이 불확실하므로 현대적 문장 번역처럼 읽어서는 안 된다.",
+      "target": "sign readings and damage",
+      "kind": "reading",
+      "description": "전사에 #, ?, [...], X가 포함되어 손상·불확실·미판독 부분이 있음을 나타낸다. 이를 제거하거나 유창한 현대어 문장처럼 번역해서는 안 된다.",
       "evidence_ids": [
-        "ev:cdli:P002718",
-        "ev:cdli:P000014",
-        "ev:cdli:P000021"
+        "ev:cdli:P002718:transliteration",
+        "ev:cdli:P000014:transliteration",
+        "ev:cdli:P000021:transliteration"
+      ]
+    },
+    {
+      "target": "P002718 genre classification",
+      "kind": "interpretation",
+      "description": "CDLI는 P002718의 장르를 Administrative로 표시하지만 Foreign ID LGE 5와 ATU 3 관련 주석은 Geography 5 연계를 제시한다. 이 차이를 전문가가 검토하기 전에는 명확한 기능 대조 사례로 승격하지 않는다.",
+      "evidence_ids": [
+        "ev:cdli:P002718:metadata"
+      ]
+    },
+    {
+      "target": "primary edition collation",
+      "kind": "coverage",
+      "description": "이번 검토는 CDLI 유물 페이지·전사 이력·일차 출판 서지를 대조했지만 ATU 3의 실제 도판과 판독을 독립적으로 재대조하지 못했다.",
+      "evidence_ids": [
+        "ev:cdli:P002718:transliteration",
+        "ev:cdli:P000014:transliteration",
+        "ev:cdli:P000021:transliteration"
       ]
     }
   ],
   "bibliography": [
     {
       "id": "bib:cdli:P002718",
-      "citation": "CDLI. ATU 3, pl. 078, W 17729,cn+ artifact entry (P002718).",
+      "citation": "CDLI. ATU 3, pl. 078, W 17729,cn+ artifact entry (P002718), metadata updated 2023-07-03.",
       "url": "https://cdli.earth/P002718"
     },
     {
       "id": "bib:cdli:P000014",
-      "citation": "CDLI. ATU 3, pl. 036, W 12139 artifact entry (P000014).",
+      "citation": "CDLI. ATU 3, pl. 036, W 12139 artifact entry (P000014), metadata updated 2023-07-03.",
       "url": "https://cdli.earth/P000014"
     },
     {
       "id": "bib:cdli:P000021",
-      "citation": "CDLI. ATU 3, pl. 080, W 13948 artifact entry (P000021).",
+      "citation": "CDLI. ATU 3, pl. 080, W 13948 artifact entry (P000021), metadata updated 2023-07-03.",
       "url": "https://cdli.earth/P000021"
     },
     {
       "id": "bib:atu3",
-      "citation": "Englund, Robert K., and Hans J. Nissen. 1993. Die lexikalischen Listen der archaischen Texte aus Uruk. Archaische Texte aus Uruk 3.",
-      "url": null
+      "citation": "Englund, Robert K., and Hans J. Nissen, with Peter Damerow. 1993. Die lexikalischen Listen der archaischen Texte aus Uruk. Archaische Texte aus Uruk 3. Berlin: Gebr. Mann.",
+      "url": "https://cdli.earth/publications/1785922"
+    },
+    {
+      "id": "bib:damerow2006",
+      "citation": "Damerow, Peter. 2006. “The Origins of Writing as a Problem of Historical Epistemology.” Cuneiform Digital Library Journal 2006(1).",
+      "url": "https://cdli.earth/articles/cdlj/2006-1"
     }
   ],
   "retrieval": {
-    "run_at": "2026-08-21T06:25:50Z",
+    "run_at": "2026-08-21T06:57:00Z",
     "source_manifest_ids": [
       "r002-source-pack-v0.1",
-      "cdli:terms:2026-06-13"
+      "cdli:terms:2026-06-13",
+      "cdli:cdlj:2006-1"
     ],
     "queries": [
-      "GET https://cdli.earth/artifacts/{numeric-id}.json for P002718, P000014, P000021",
-      "CDLI artifact pages for source and transliteration checks"
+      "CDLI artifact pages and revision histories for P002718, P000014, P000021",
+      "CDLI primary publication entry for ATU 3",
+      "Damerow 2006, CDLJ 2006:1, §§5–10"
     ],
     "software_version": "0.1.0",
     "model": "GPT-5.6 Pro",
-    "prompt_version": "r002-context-draft-0.1"
+    "prompt_version": "r002-source-audit-0.2"
   },
   "review": {
-    "status": "unreviewed",
-    "reviewers": [],
+    "status": "needs_revision",
+    "reviewers": [
+      "OpenAI GPT-5.6 Pro (source-audit assistant)"
+    ],
     "notes": [
-      "CDLI identifiers and current metadata were machine-resolved on 2026-08-21.",
-      "Historical claims and transliteration selection require Assyriological review before publication as verified research.",
-      "No CDLI images are embedded or redistributed."
+      "CDLI의 현재 유물 메타데이터, 전사 행, revision history, primary publication references를 2026-08-21에 대조했다.",
+      "초안에서 빠졌던 #, ?, [...], X 등의 손상·불확실성 표지를 복원하고 locator를 실제 인용 범위와 일치시켰다.",
+      "P002718의 Administrative 장르와 Geography 5/LGE 5 연계 표기 사이의 분류 문제가 발견되었다.",
+      "ATU 3 실제 도판과 모든 판독을 독립적으로 collate하지 못했으며 Assyriologist의 사람 검토가 아직 없다.",
+      "따라서 source_checked나 verified로 승격하지 않고 needs_revision을 유지한다.",
+      "CDLI 이미지와 line art는 저장소에 복제하지 않았다."
     ]
   }
 }
