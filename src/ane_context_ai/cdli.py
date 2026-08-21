@@ -151,8 +151,9 @@ def normalize_artifact_metadata(
 ) -> dict[str, Any]:
     """Extract conservative, non-inferred fields from a CDLI artifact response.
 
-    The raw response is intentionally retained because CDLI's schema can evolve.
-    Missing fields remain null/empty rather than being guessed.
+    Missing fields remain null/empty rather than being guessed. The raw payload is
+    deliberately not persisted because its content/rights scope may evolve; only
+    normalized metadata plus top-level response field names are retained.
     """
 
     canonical = normalize_p_number(p_number)
@@ -175,7 +176,7 @@ def normalize_artifact_metadata(
         "inscription_availability": _has_nonempty(
             record, {"inscription", "inscriptions", "transliteration", "transcription"}
         ),
-        "raw": dict(record),
+        "response_fields": sorted(str(key) for key in record.keys()),
     }
 
 
