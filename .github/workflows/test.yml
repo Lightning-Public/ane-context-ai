@@ -1,0 +1,46 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run unit tests
+        run: PYTHONPATH=src python -m unittest discover -s tests
+      - name: Validate project examples
+        run: |
+          PYTHONPATH=src python -m ane_context_ai validate \
+            examples/context-package.example.json
+          PYTHONPATH=src python -m ane_context_ai validate-review \
+            examples/r002-ai-source-audit.review-record.json
+      - name: Build beginner learning view
+        run: |
+          PYTHONPATH=src python -m ane_context_ai build-learning-view \
+            examples/r002-origin-of-writing.context-package.json \
+            --output /tmp/r002-learning-view.json
+          python -m json.tool /tmp/r002-learning-view.json >/dev/null
+      - name: Check browser JavaScript syntax
+        run: node --check web/r002/app.js
+      - name: Validate Vercel configuration
+        run: python -m json.tool vercel.json >/dev/null
+      - name: Smoke-test static prototype routes
+        run: |
+          python -m http.server 8000 >/tmp/ane-context-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          sleep 1
+          curl --fail --silent --show-error \
+            http://127.0.0.1:8000/web/r002/ >/dev/null
+          curl --fail --silent --show-error \
+            http://127.0.0.1:8000/examples/r002-origin-of-writing.context-package.json \
+            >/dev/null

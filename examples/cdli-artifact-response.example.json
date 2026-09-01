@@ -1,0 +1,11 @@
+{
+  "id": 6427,
+  "period": {"name": "Uruk III"},
+  "provenience": {"name": "Uruk (mod. Warka)"},
+  "genres": [{"name": "Administrative"}],
+  "collections": [{"name": "Example collection"}],
+  "museum_number": "EXAMPLE 1",
+  "publications": [{"designation": "Synthetic example only"}],
+  "inscriptions": [{"id": 1}],
+  "note": "Synthetic fixture for documentation/testing; not a claim about CDLI P006427."
+}
