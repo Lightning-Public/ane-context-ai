@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { contextPackageToResearchSpace } from './context-package-adapter.js';
+import { contextPackageToResearchSpace } from './context-package-adapter.mjs';
 
 const pkg = {
   id: 'example:synthetic:001',
