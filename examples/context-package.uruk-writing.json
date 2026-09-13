@@ -1,0 +1,144 @@
+{
+  "id": "research:uruk-writing-administration:001",
+  "schema_version": "0.1.0",
+  "created_at": "2026-09-13T15:10:00Z",
+  "question": {
+    "original": "후기 우루크기의 초기 문자는 주로 행정·경제 기록을 위해 사용되었는가?",
+    "normalized": "후기 4천년기 남부 메소포타미아의 원시 설형문자 자료가 행정·경제 기록과 얼마나 강하게 연결되는지, 그리고 그 설명의 한계를 검토한다.",
+    "scope": {
+      "chronology": ["ca. 3300–2900 BCE"],
+      "places": ["Uruk", "southern Mesopotamia"],
+      "languages": ["proto-cuneiform; underlying language attribution uncertain in earliest phase"],
+      "genres": ["administrative account", "lexical/official lists"],
+      "notes": ["이 패키지는 Research Space UI의 end-to-end 검증을 위한 최소 연구 패키지이며, 원시 설형문자 코퍼스 전체를 대표하지 않는다."]
+    }
+  },
+  "evidence": [
+    {
+      "id": "ev:met-origins:admin",
+      "source": "The Metropolitan Museum of Art — The Origins of Writing",
+      "source_record_id": "met-essay-origins-writing-2004",
+      "stable_url": "https://www.metmuseum.org/ko/essays/the-origins-of-writing",
+      "locator": "essay sections on earliest Uruk tablets and accounting",
+      "layer": "secondary",
+      "excerpt": "Met describes the Uruk archives as strongly connected to accounting and the growth of urban bureaucratic practice, while noting that the wider origin and spread of writing may have been more complex.",
+      "attribution": "Ira Spar, The Metropolitan Museum of Art",
+      "license_manifest_id": "web-reference:metmuseum"
+    },
+    {
+      "id": "ev:met-barley:account",
+      "source": "The Metropolitan Museum of Art — administrative account concerning malt and barley groats",
+      "source_record_id": "met-1988.433.3",
+      "stable_url": "https://www.metmuseum.org/toah/works-of-art/1988.433.3/",
+      "locator": "object description",
+      "layer": "secondary",
+      "excerpt": "The object description identifies early southern Mesopotamian tablets as recording economic information with pictographs and numerals and describes this tablet as a probable grain distribution record.",
+      "attribution": "The Metropolitan Museum of Art",
+      "license_manifest_id": "web-reference:metmuseum"
+    },
+    {
+      "id": "ev:bm-cuneiform:bookkeeping",
+      "source": "British Museum — How to write cuneiform",
+      "source_record_id": "bm-blog-how-write-cuneiform-2021",
+      "stable_url": "https://www.britishmuseum.org/blog/how-write-cuneiform",
+      "locator": "introductory history of cuneiform",
+      "layer": "secondary",
+      "excerpt": "The British Museum describes early cuneiform at Uruk as a bookkeeping tool used to track rations such as bread and beer before the script expanded to much wider uses.",
+      "attribution": "British Museum",
+      "license_manifest_id": "web-reference:britishmuseum"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim:administrative-core",
+      "statement": "Surviving early proto-cuneiform evidence from Uruk is strongly associated with accounting, rationing, commodities, and other administrative-economic functions.",
+      "status": "scholarly_interpretation",
+      "supporting_evidence_ids": ["ev:met-origins:admin", "ev:met-barley:account", "ev:bm-cuneiform:bookkeeping"],
+      "challenging_evidence_ids": [],
+      "confidence": "high",
+      "reasoning": "Three museum-level secondary sources independently characterize the earliest or early Uruk writing evidence as closely tied to economic and administrative record keeping."
+    },
+    {
+      "id": "claim:origin-caution",
+      "statement": "The administrative character of the surviving Uruk archive should not by itself be treated as proof that writing had a single origin, a single function, or an exclusively administrative developmental path.",
+      "status": "scholarly_interpretation",
+      "supporting_evidence_ids": ["ev:met-origins:admin"],
+      "challenging_evidence_ids": [],
+      "confidence": "medium",
+      "reasoning": "The Met explicitly notes that the origin and spread of writing may be more complex and that the Uruk tablets may represent a phase in a wider early development rather than the whole story."
+    }
+  ],
+  "debates": [
+    {
+      "issue": "행정 수요를 초기 문자의 주된 발생 동인으로 어느 정도까지 설명할 수 있는가?",
+      "positions": [
+        {
+          "summary": "행정·경제 관리 수요는 도시화와 함께 초기 문자 발달을 강하게 촉진한 핵심 동인이었다.",
+          "evidence_ids": ["ev:met-origins:admin", "ev:met-barley:account", "ev:bm-cuneiform:bookkeeping"]
+        },
+        {
+          "summary": "현존하는 점토 행정문서의 비중만으로 문자의 전체 기원이나 초기 기능을 단일 원인으로 환원해서는 안 된다.",
+          "evidence_ids": ["ev:met-origins:admin"]
+        }
+      ],
+      "open_questions": [
+        "보존되지 않은 목재·유기물 기록 매체가 있었다면 초기 문자 기능에 대한 현재 표본은 얼마나 편향되어 있는가?",
+        "우루크 외 지역의 동시기 또는 더 이른 표기 체계를 포함하면 단일 중심의 기원 서사는 어떻게 달라지는가?"
+      ]
+    }
+  ],
+  "uncertainties": [
+    {
+      "target": "claim:administrative-core",
+      "kind": "coverage",
+      "description": "현존 자료는 보존성이 높은 점토판에 크게 의존하므로, 사라진 기록 매체와 비행정적 사용을 과소대표할 가능성이 있다.",
+      "evidence_ids": ["ev:met-origins:admin"]
+    },
+    {
+      "target": "claim:origin-caution",
+      "kind": "interpretation",
+      "description": "'주된 동인'이라는 표현은 자료 분포에 대한 역사적 해석이며, 행정적 용례의 높은 빈도와 단일한 발명 원인을 동일시해서는 안 된다.",
+      "evidence_ids": ["ev:met-origins:admin", "ev:bm-cuneiform:bookkeeping"]
+    },
+    {
+      "target": "earliest-language-assignment",
+      "kind": "identity",
+      "description": "가장 이른 원시 설형문자 자료를 특정 언어 집단과 직접 동일시하는 문제에는 불확실성이 남아 있다.",
+      "evidence_ids": ["ev:met-origins:admin"]
+    }
+  ],
+  "bibliography": [
+    {
+      "id": "bib:met-origins",
+      "citation": "Ira Spar, ‘The Origins of Writing,’ The Metropolitan Museum of Art, 2004.",
+      "url": "https://www.metmuseum.org/ko/essays/the-origins-of-writing"
+    },
+    {
+      "id": "bib:met-barley",
+      "citation": "The Metropolitan Museum of Art, ‘Cuneiform tablet: administrative account with entries concerning malt and barley groats,’ ca. 3100–2900 BCE.",
+      "url": "https://www.metmuseum.org/toah/works-of-art/1988.433.3/"
+    },
+    {
+      "id": "bib:bm-cuneiform",
+      "citation": "British Museum, ‘How to write cuneiform,’ 2021.",
+      "url": "https://www.britishmuseum.org/blog/how-write-cuneiform"
+    }
+  ],
+  "retrieval": {
+    "run_at": "2026-09-13T15:10:00Z",
+    "source_manifest_ids": ["web-reference:metmuseum", "web-reference:britishmuseum"],
+    "queries": ["proto-cuneiform Uruk administrative tablets early writing", "cuneiform origins writing Uruk bookkeeping"],
+    "software_version": "0.1.0",
+    "model": "research-assisted manual synthesis",
+    "prompt_version": "research-space-ane-e2e-v1"
+  },
+  "review": {
+    "status": "source_checked",
+    "reviewers": ["project maintainer workflow"],
+    "notes": [
+      "Public museum sources were checked for this UI validation package.",
+      "This is not an expert-reviewed corpus study and should not be promoted to expert_reviewed without specialist review.",
+      "The package intentionally preserves competing interpretation and coverage uncertainty."
+    ]
+  }
+}
