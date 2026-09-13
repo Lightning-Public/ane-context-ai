@@ -1,9 +1,166 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research Space v0.1</title><style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#f5f7fb;color:#172033}.app{display:grid;grid-template-columns:210px 1fr;min-height:100vh}.side{background:#111c34;color:#fff;padding:20px 14px}.brand{font-weight:800;margin-bottom:24px}.brand small{display:block;color:#91a0c1;font-weight:400}.nav button{width:100%;border:0;background:transparent;color:#bec9de;text-align:left;padding:11px;border-radius:9px;margin:3px 0;cursor:pointer}.nav button.active,.nav button:hover{background:#2f67f4;color:#fff}.main{min-width:0}.top{height:64px;background:#fff;border-bottom:1px solid #dde3ee;display:flex;align-items:center;justify-content:space-between;padding:0 24px}.view{display:none;padding:26px}.view.active{display:block}.panel{background:#fff;border:1px solid #dce3ee;border-radius:15px;box-shadow:0 8px 28px #1720330d}.new{max-width:800px;padding:30px;margin:24px auto}.new label{display:grid;gap:7px;margin:16px 0;font-size:13px;font-weight:700}input,textarea{font:inherit;padding:11px;border:1px solid #cfd9e8;border-radius:9px}textarea{min-height:90px}.primary{border:0;border-radius:9px;padding:10px 14px;cursor:pointer;background:#356bf5;color:#fff;font-weight:800}.canvas{display:grid;grid-template-columns:180px 1fr 280px;gap:14px;height:calc(100vh - 116px)}.tool,.graph,.inspect{padding:16px}.types button{display:block;width:100%;text-align:left;margin:5px 0;border:0;background:#f3f6fb;padding:9px;border-radius:8px}.graph{position:relative;overflow:auto;min-height:560px}.node{position:absolute;width:190px;padding:13px;border:1px solid #ccd8ea;border-radius:11px;background:#fff;box-shadow:0 6px 20px #18223a12;cursor:pointer}.node.question{left:36%;top:35px;border-color:#76a0ff}.node.hyp{left:33%;top:190px;border-color:#63c5a2}.node.e1{left:9%;top:350px}.node.e2{left:39%;top:350px}.node.counter{left:69%;top:350px;border-color:#ef8d8d}.tag{font-size:11px;color:#597096;font-weight:700}.node.selected{outline:3px solid #356bf533}.inspect h3{margin-top:0}.meta{font-size:13px;color:#67758d}.suggest{margin-top:16px;padding-top:14px;border-top:1px solid #e2e7f0}.suggest-card{background:#f6f8fc;padding:11px;border-radius:9px;margin:8px 0}.actions{display:flex;gap:6px;margin-top:8px}.actions button{border:0;padding:7px 9px;border-radius:7px;cursor:pointer}.accept{background:#e8f7ef}.reject{background:#fdeeee}.manu{max-width:980px;margin:auto;display:grid;grid-template-columns:1fr 230px;gap:16px}.paper{padding:38px}.paper h1{font-size:28px}.paper p{line-height:1.75}.outline{padding:18px}.status{display:inline-block;padding:5px 8px;border-radius:999px;background:#edf3ff;color:#315fd8;font-size:12px}@media(max-width:900px){.app{grid-template-columns:74px 1fr}.brand{font-size:0}.brand:before{content:'RS';font-size:18px}.nav button{font-size:0}.nav button:first-letter{font-size:18px}.canvas{grid-template-columns:1fr}.tool,.inspect{display:none}.manu{grid-template-columns:1fr}}
-</style></head><body><div class="app"><aside class="side"><div class="brand">Research Space<small>ANE Context AI prototype</small></div><div class="nav"><button class="active" data-v="new">＋ 새 연구</button><button data-v="canvas">◫ 연구 캔버스</button><button data-v="manuscript">▣ 문서 생성</button></div></aside><main class="main"><header class="top"><strong id="crumb">새 연구</strong><span class="status">v0.1 prototype</span></header>
-<section id="new" class="view active"><div class="panel new"><div class="tag">NEW RESEARCH</div><h1>질문에서 연구 공간을 시작하세요.</h1><p class="meta">AI는 정답을 길게 쓰는 대신 검토 가능한 질문·가설·근거·반론 구조를 먼저 제안합니다.</p><label>프로젝트 제목<input id="title" value="AI와 인간의 의사결정"></label><label>시작 질문<textarea id="question">AI는 왜 인간보다 빠르게 의사결정을 내릴 수 있는가?</textarea></label><label>연구 목적<textarea>갈톤보드 비유를 포함한 설명 글 작성</textarea></label><button class="primary" id="start">AI가 연구 구조 제안하기 →</button></div></section>
-<section id="canvas" class="view"><div class="canvas"><div class="panel tool"><h3>노드</h3><div class="types"><button>질문</button><button>개념</button><button>주장</button><button>가설</button><button>근거</button><button>출처</button><button>반론</button></div></div><div class="panel graph"><div class="node question selected" data-type="질문" data-title="AI 의사결정 속도"><span class="tag">QUESTION</span><b id="qnode">AI는 왜 인간보다 빠르게 의사결정을 내릴 수 있는가?</b></div><div class="node hyp" data-type="가설" data-title="병렬 탐색 가설"><span class="tag">HYPOTHESIS</span><b>AI는 병렬 후보 탐색과 낮은 후회 비용 때문에 더 빠르다.</b></div><div class="node e1" data-type="근거" data-title="패턴 인식"><span class="tag">EVIDENCE</span><b>대규모 데이터에서의 빠른 패턴 인식</b></div><div class="node e2" data-type="실험" data-title="비교 실험"><span class="tag">EXPERIMENT</span><b>동일한 의사결정 과제로 인간과 AI 비교</b></div><div class="node counter" data-type="반론" data-title="검증 비용"><span class="tag">COUNTER</span><b>오류 검증 비용을 포함하면 항상 더 빠른 것은 아니다.</b></div></div><div class="panel inspect"><h3 id="ititle">AI 의사결정 속도</h3><div class="meta" id="itype">타입 · 질문</div><p id="ibody">연구의 출발점이 되는 핵심 질문입니다.</p><label class="meta">신뢰도</label><input type="range" value="72"><div class="suggest"><b>AI 제안</b><div class="suggest-card">반론 후보: 빠른 결정과 좋은 결정은 동일하지 않다.<div class="actions"><button class="accept" onclick="this.closest('.suggest-card').innerHTML='✓ 캔버스에 추가됨'">승인</button><button class="reject" onclick="this.closest('.suggest-card').remove()">거절</button></div></div><button class="primary" id="toDoc">현재 구조를 문서로 보기</button></div></div></div></section>
-<section id="manuscript" class="view"><div class="manu"><article class="panel paper"><div class="tag">MANUSCRIPT VIEW</div><h1 id="docTitle">AI와 인간의 의사결정 속도에 대한 연구</h1><h2>1. 문제 제기</h2><p>인공지능은 여러 후보를 빠르게 평가할 수 있지만 인간의 의사결정은 위험, 후회, 맥락 판단을 함께 포함한다. 따라서 단순 처리 속도만으로 두 체계를 비교해서는 안 된다.</p><h2>2. 현재 가설</h2><p>Research Space의 현재 가설은 AI가 많은 후보를 빠르게 탐색할 수 있어 특정 조건에서 인간보다 신속한 결정을 내릴 수 있다는 것이다.</p><h2>3. 반론과 미해결점</h2><p>빠른 결정과 좋은 결정은 같지 않으며, 오류를 검증하는 비용과 도메인 의존성을 포함하면 결론은 달라질 수 있다.</p></article><aside class="panel outline"><h3>연결된 구조</h3><p>질문 1</p><p>가설 1</p><p>근거 1</p><p>실험 1</p><p>반론 1</p><hr><button class="primary">보고서로 투영</button></aside></div></section>
-</main></div><script>
-const buttons=[...document.querySelectorAll('[data-v]')],views=[...document.querySelectorAll('.view')];function show(id){views.forEach(v=>v.classList.toggle('active',v.id===id));buttons.forEach(b=>b.classList.toggle('active',b.dataset.v===id));document.querySelector('#crumb').textContent={new:'새 연구',canvas:'연구 캔버스',manuscript:'문서 생성'}[id]}buttons.forEach(b=>b.onclick=()=>show(b.dataset.v));document.querySelector('#start').onclick=()=>{document.querySelector('#qnode').textContent=document.querySelector('#question').value;show('canvas')};document.querySelectorAll('.node').forEach(n=>n.onclick=()=>{document.querySelectorAll('.node').forEach(x=>x.classList.remove('selected'));n.classList.add('selected');document.querySelector('#ititle').textContent=n.dataset.title;document.querySelector('#itype').textContent='타입 · '+n.dataset.type;document.querySelector('#ibody').textContent=n.textContent.trim()});document.querySelector('#toDoc').onclick=()=>{document.querySelector('#docTitle').textContent=document.querySelector('#title').value+'에 대한 연구';show('manuscript')};
-</script></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Research Space v0.2</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#f5f7fb;color:#172033}.app{display:grid;grid-template-columns:220px 1fr;min-height:100vh}.side{background:#111c34;color:#fff;padding:20px 14px}.brand{font-weight:800;margin-bottom:24px}.brand small{display:block;color:#91a0c1;font-weight:400}.nav button{width:100%;border:0;background:transparent;color:#bec9de;text-align:left;padding:11px;border-radius:9px;margin:3px 0;cursor:pointer}.nav button.active,.nav button:hover{background:#2f67f4;color:#fff}.main{min-width:0}.top{height:64px;background:#fff;border-bottom:1px solid #dde3ee;display:flex;align-items:center;justify-content:space-between;padding:0 24px}.view{display:none;padding:26px}.view.active{display:block}.panel{background:#fff;border:1px solid #dce3ee;border-radius:15px;box-shadow:0 8px 28px #1720330d}.new{max-width:900px;padding:30px;margin:24px auto}.actions{display:flex;gap:10px;flex-wrap:wrap}.primary,.secondary{border:0;border-radius:9px;padding:10px 14px;cursor:pointer;font-weight:800}.primary{background:#356bf5;color:#fff}.secondary{background:#edf2ff;color:#315fd8}.meta{font-size:13px;color:#67758d}.tag{font-size:11px;color:#597096;font-weight:800;text-transform:uppercase}.canvas{display:grid;grid-template-columns:190px minmax(620px,1fr) 300px;gap:14px;height:calc(100vh - 116px)}.tool,.inspect{padding:16px}.legend{display:grid;gap:7px;margin-top:14px}.legend span{display:flex;gap:7px;align-items:center;font-size:12px;color:#66758c}.dot{width:10px;height:10px;border-radius:99px;display:inline-block}.graph{position:relative;overflow:auto;min-height:620px;background-image:radial-gradient(#dce4f0 1px,transparent 1px);background-size:20px 20px}.graph-inner{position:relative;min-width:1180px;min-height:720px}.edge-layer{position:absolute;inset:0;pointer-events:none;overflow:visible}.edge{stroke:#9aacbf;stroke-width:1.5;fill:none;marker-end:url(#arrow)}.edge-label{font-size:10px;fill:#607087}.node{position:absolute;width:190px;min-height:80px;padding:12px;border:1px solid #cad5e5;border-radius:11px;background:#fff;box-shadow:0 6px 18px #18223a12;cursor:pointer}.node.selected{outline:3px solid #356bf53d}.node.question{border-color:#7298f5}.node.claim{border-color:#52b788}.node.evidence{border-color:#d6a84b}.node.uncertainty{border-color:#e07a7a}.node.review,.node.provenance{border-style:dashed}.node .label{display:block;font-size:13px;line-height:1.35;margin-top:5px}.inspect h3{margin:0 0 6px}.inspect pre{white-space:pre-wrap;word-break:break-word;background:#f6f8fc;border-radius:9px;padding:10px;font-size:11px;max-height:280px;overflow:auto}.status{display:inline-block;padding:5px 8px;border-radius:999px;background:#edf3ff;color:#315fd8;font-size:12px}.load-state{margin-top:16px;padding:10px;border-radius:9px;background:#f6f8fc;font-size:12px}.manu{max-width:980px;margin:auto;display:grid;grid-template-columns:1fr 250px;gap:16px}.paper{padding:38px}.paper h1{font-size:28px}.paper p{line-height:1.75}.outline{padding:18px}.count-list{display:grid;gap:8px;font-size:13px}@media(max-width:980px){.app{grid-template-columns:76px 1fr}.brand{font-size:0}.brand:before{content:'RS';font-size:18px}.nav button{font-size:0}.nav button:first-letter{font-size:18px}.canvas{grid-template-columns:1fr}.tool,.inspect{display:none}.manu{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand">Research Space<small>ANE Context AI · Context Package viewer</small></div>
+    <div class="nav">
+      <button class="active" data-v="new">＋ 시작</button>
+      <button data-v="canvas">◫ 연구 캔버스</button>
+      <button data-v="manuscript">▣ 문서 투영</button>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="top"><strong id="crumb">시작</strong><span class="status" id="packageStatus">v0.2 · no package</span></header>
+
+    <section id="new" class="view active">
+      <div class="panel new">
+        <div class="tag">CONTEXT PACKAGE VIEWER</div>
+        <h1>실제 Context Package를 Research Space로 투영합니다.</h1>
+        <p class="meta">합성 화면 대신 저장소의 <code>examples/context-package.example.json</code>을 읽어 질문·주장·근거·불확실성·검토 이력을 노드와 관계로 표시합니다.</p>
+        <div class="actions">
+          <button class="primary" id="loadExample">예시 Context Package 불러오기</button>
+          <button class="secondary" id="openCanvas" disabled>Canvas 열기</button>
+        </div>
+        <div class="load-state" id="loadState">아직 패키지를 불러오지 않았습니다.</div>
+        <p class="meta">브라우저 보안 때문에 <code>file://</code> 직접 열기보다 저장소 루트에서 <code>python -m http.server 8000</code>으로 실행하세요.</p>
+      </div>
+    </section>
+
+    <section id="canvas" class="view">
+      <div class="canvas">
+        <aside class="panel tool">
+          <h3>레이어</h3>
+          <div class="legend">
+            <span><i class="dot" style="background:#7298f5"></i>질문</span>
+            <span><i class="dot" style="background:#52b788"></i>주장</span>
+            <span><i class="dot" style="background:#d6a84b"></i>근거</span>
+            <span><i class="dot" style="background:#e07a7a"></i>불확실성</span>
+            <span><i class="dot" style="background:#9aacbf"></i>검토 / provenance</span>
+          </div>
+          <hr>
+          <div class="count-list" id="counts"></div>
+        </aside>
+        <div class="panel graph"><div id="graphInner" class="graph-inner"></div></div>
+        <aside class="panel inspect">
+          <div class="tag" id="inspectorType">NODE</div>
+          <h3 id="inspectorTitle">노드를 선택하세요</h3>
+          <p class="meta" id="inspectorMeta">Context Package의 구조를 그대로 표시합니다.</p>
+          <pre id="inspectorData">{}</pre>
+          <button class="primary" id="toDoc" disabled>현재 패키지를 문서로 보기</button>
+        </aside>
+      </div>
+    </section>
+
+    <section id="manuscript" class="view">
+      <div class="manu">
+        <article class="panel paper">
+          <div class="tag">MANUSCRIPT PROJECTION</div>
+          <h1 id="docTitle">Context Package</h1>
+          <h2>질문</h2><p id="docQuestion"></p>
+          <h2>현재 주장</h2><div id="docClaims"></div>
+          <h2>불확실성과 제한</h2><div id="docUncertainties"></div>
+        </article>
+        <aside class="panel outline">
+          <h3>패키지 메타데이터</h3>
+          <div id="docMeta" class="count-list"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</div>
+<script type="module">
+  import { loadContextPackage, buildCanvasLayout } from './context-package-loader.mjs';
+
+  const EXAMPLE_URL='../../examples/context-package.example.json';
+  const buttons=[...document.querySelectorAll('[data-v]')];
+  const views=[...document.querySelectorAll('.view')];
+  let current=null;
+
+  function show(id){
+    views.forEach(v=>v.classList.toggle('active',v.id===id));
+    buttons.forEach(b=>b.classList.toggle('active',b.dataset.v===id));
+    document.querySelector('#crumb').textContent={new:'시작',canvas:'연구 캔버스',manuscript:'문서 투영'}[id];
+  }
+  buttons.forEach(b=>b.onclick=()=>show(b.dataset.v));
+
+  function nodeCounts(nodes){
+    const counts={};
+    nodes.forEach(node=>counts[node.type]=(counts[node.type]||0)+1);
+    return counts;
+  }
+
+  function edgeEndpoints(nodes){
+    return new Map(nodes.map(node=>[node.id,{x:node.x+95,y:node.y+40}]));
+  }
+
+  function renderGraph(graph){
+    const nodes=buildCanvasLayout(graph);
+    const inner=document.querySelector('#graphInner');
+    inner.innerHTML='';
+    const endpoints=edgeEndpoints(nodes);
+    const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('class','edge-layer');
+    svg.setAttribute('width','1180'); svg.setAttribute('height','720');
+    svg.innerHTML='<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9aacbf"/></marker></defs>';
+    graph.edges.forEach(edge=>{
+      const a=endpoints.get(edge.from), b=endpoints.get(edge.to); if(!a||!b)return;
+      const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('x1',a.x); line.setAttribute('y1',a.y); line.setAttribute('x2',b.x); line.setAttribute('y2',b.y); line.setAttribute('class','edge'); svg.appendChild(line);
+      const text=document.createElementNS('http://www.w3.org/2000/svg','text');
+      text.setAttribute('x',(a.x+b.x)/2); text.setAttribute('y',(a.y+b.y)/2-5); text.setAttribute('class','edge-label'); text.textContent=edge.relation; svg.appendChild(text);
+    });
+    inner.appendChild(svg);
+    nodes.forEach(node=>{
+      const el=document.createElement('button');
+      el.className=`node ${node.type}`; el.style.left=`${node.x}px`; el.style.top=`${node.y}px`;
+      el.innerHTML=`<span class="tag">${node.type}</span><span class="label"></span>`;
+      el.querySelector('.label').textContent=node.label;
+      el.onclick=()=>selectNode(el,node);
+      inner.appendChild(el);
+    });
+    const counts=nodeCounts(nodes);
+    document.querySelector('#counts').innerHTML=Object.entries(counts).map(([k,v])=>`<div><b>${k}</b> · ${v}</div>`).join('');
+  }
+
+  function selectNode(el,node){
+    document.querySelectorAll('.node').forEach(x=>x.classList.remove('selected')); el.classList.add('selected');
+    document.querySelector('#inspectorType').textContent=node.type;
+    document.querySelector('#inspectorTitle').textContent=node.label;
+    document.querySelector('#inspectorMeta').textContent=`ID · ${node.id}`;
+    document.querySelector('#inspectorData').textContent=JSON.stringify(node.data,null,2);
+  }
+
+  function renderDocument(pkg,graph){
+    document.querySelector('#docTitle').textContent=pkg.question.normalized || pkg.question.original;
+    document.querySelector('#docQuestion').textContent=pkg.question.original;
+    document.querySelector('#docClaims').innerHTML=(pkg.claims.length?pkg.claims:[{statement:'현재 주장이 없습니다.'}]).map(c=>`<p>${escapeHtml(c.statement)}${c.confidence?` <span class="status">${escapeHtml(c.confidence)}</span>`:''}</p>`).join('');
+    document.querySelector('#docUncertainties').innerHTML=(pkg.uncertainties.length?pkg.uncertainties:[{description:'기록된 불확실성이 없습니다.'}]).map(u=>`<p>${escapeHtml(u.description)}</p>`).join('');
+    document.querySelector('#docMeta').innerHTML=`<div>Package · ${escapeHtml(pkg.id)}</div><div>Schema · ${escapeHtml(pkg.schema_version)}</div><div>Review · ${escapeHtml(pkg.review.status)}</div><div>Nodes · ${graph.nodes.length}</div><div>Edges · ${graph.edges.length}</div>`;
+  }
+
+  function escapeHtml(value=''){const div=document.createElement('div');div.textContent=String(value);return div.innerHTML;}
+
+  document.querySelector('#loadExample').onclick=async()=>{
+    const state=document.querySelector('#loadState'); state.textContent='Context Package를 불러오는 중…';
+    try{
+      current=await loadContextPackage(EXAMPLE_URL);
+      renderGraph(current.graph); renderDocument(current.package,current.graph);
+      state.textContent=`✓ ${current.package.id} · ${current.graph.nodes.length} nodes / ${current.graph.edges.length} edges`;
+      document.querySelector('#packageStatus').textContent=`${current.package.schema_version} · ${current.package.review.status}`;
+      document.querySelector('#openCanvas').disabled=false; document.querySelector('#toDoc').disabled=false;
+    }catch(error){ state.textContent=`불러오기 실패: ${error.message}`; }
+  };
+  document.querySelector('#openCanvas').onclick=()=>show('canvas');
+  document.querySelector('#toDoc').onclick=()=>show('manuscript');
+</script>
+</body>
+</html>
