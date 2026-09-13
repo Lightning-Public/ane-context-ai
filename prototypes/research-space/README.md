@@ -34,11 +34,13 @@ ANE Context AI의 Context Package를 사람이 탐색하고 수정할 수 있는
 
 변환은 read-only이며 원본 패키지를 수정하지 않는다.
 
-테스트:
+테스트 명령:
 
 ```bash
 node prototypes/research-space/context-package-adapter.test.mjs
 ```
+
+주의: 이번 원격 편집 세션에서는 Node 테스트를 직접 실행하지 못했으므로, PR 병합 전 로컬 또는 CI에서 위 명령 실행이 필요하다.
 
 상세 매핑 원칙은 `docs/product/research-space-context-package-mapping.md`를 참고한다.
 
